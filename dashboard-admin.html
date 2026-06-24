@@ -3,15 +3,15 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<title>Dashboard Admin</title>
+    <title>Dashboard Admin</title>
 
-<link rel="stylesheet"
-href="style.css">
+    <link rel="stylesheet"
+          href="style.css">
 
 </head>
 
@@ -31,249 +31,288 @@ href="style.css">
 
         <div class="sidebar-menu">
 
-    <a href="dashboard-admin.html">
-        Dashboard
-    </a>
+            <a href="dashboard-admin.html"
+               class="active">
 
-    <a href="kelola-laporan.html">
-        Kelola Laporan
-    </a>
+                Dashboard
 
-    <a href="monitoring.html">
-        Monitoring
-    </a>
+            </a>
 
-    <a href="index.html">
-        Logout
-    </a>
+            <a href="kelola-laporan.html">
 
-</div>
+                Kelola Laporan
+
+            </a>
+
+            <a href="monitoring.html">
+
+                Monitoring
+
+            </a>
+
+            <a href="index.html">
+
+                Logout
+
+            </a>
+
+        </div>
 
     </aside>
 
-   <main class="main-content">
+    <main class="main-content">
 
-    <div class="header">
+        <div class="header">
 
-        <h1>
-            Dashboard Admin
-        </h1>
+            <h1>
+                Dashboard Admin
+            </h1>
 
-        <p>
-            Ringkasan laporan fasilitas kampus
-        </p>
-
-    </div>
-
-    <div class="stats">
-
-        <div class="card stat-card">
-
-            <h3>Total Laporan</h3>
-
-            <h2>35</h2>
+            <p>
+                Selamat datang kembali. Kelola laporan kerusakan fasilitas kampus dengan lebih mudah dan terorganisir.
+            </p>
 
         </div>
 
-        <div class="card stat-card">
+        <!-- STATISTIK -->
 
-            <h3>Dilaporkan</h3>
+        <div class="stats">
 
-            <h2>10</h2>
+            <div class="card stat-card">
+
+                <h3>
+                    Total Laporan
+                </h3>
+
+                <h2>
+                    35
+                </h2>
+
+            </div>
+
+            <div class="card stat-card">
+
+                <h3>
+                    Dilaporkan
+                </h3>
+
+                <h2>
+                    10
+                </h2>
+
+            </div>
+
+            <div class="card stat-card">
+
+                <h3>
+                    Diproses
+                </h3>
+
+                <h2>
+                    15
+                </h2>
+
+            </div>
+
+            <div class="card stat-card">
+
+                <h3>
+                    Selesai
+                </h3>
+
+                <h2>
+                    10
+                </h2>
+
+            </div>
 
         </div>
 
-        <div class="card stat-card">
+        <!-- MENU CEPAT -->
 
-            <h3>Diproses</h3>
+        <div class="card">
 
-            <h2>15</h2>
+            <h2>
+                Menu Cepat
+            </h2>
+
+            <br>
+
+            <div class="quick-menu">
+
+                <a href="kelola-laporan.html"
+                   class="quick-card">
+
+                    <h3>
+                        Kelola Laporan
+                    </h3>
+
+                    <p>
+                        Lihat, periksa, dan ubah status laporan yang masuk.
+                    </p>
+
+                </a>
+
+                <a href="monitoring.html"
+                   class="quick-card">
+
+                    <h3>
+                        Monitoring
+                    </h3>
+
+                    <p>
+                        Pantau laporan dengan tingkat urgensi tinggi.
+                    </p>
+
+                </a>
+
+            </div>
 
         </div>
 
-        <div class="card stat-card">
+        <!-- LAPORAN TERBARU -->
 
-            <h3>Selesai</h3>
+        <div class="card">
 
-            <h2>10</h2>
+            <h2>
+                Laporan Terbaru
+            </h2>
+
+            <br>
+
+            <div class="table-container">
+
+                <table>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Pelapor</th>
+                        <th>Kategori</th>
+                        <th>Lokasi</th>
+                        <th>Status</th>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>LP-2026-001</td>
+                        <td>Vella</td>
+                        <td>AC</td>
+                        <td>Gedung A Lt.2</td>
+
+                        <td>
+
+                            <span class="badge badge-warning">
+
+                                Diproses
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>LP-2026-002</td>
+                        <td>Rizki</td>
+                        <td>Listrik</td>
+                        <td>Laboratorium</td>
+
+                        <td>
+
+                            <span class="badge badge-danger">
+
+                                Dilaporkan
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>LP-2026-003</td>
+                        <td>Dina</td>
+                        <td>Internet</td>
+                        <td>Perpustakaan</td>
+
+                        <td>
+
+                            <span class="badge badge-success">
+
+                                Selesai
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+                </table>
+
+            </div>
 
         </div>
 
-    </div>
+        <!-- PRIORITAS TINGGI -->
 
-    <div class="card">
+        <div class="card">
 
-        <h2>
-            Ringkasan Sistem
-        </h2>
+            <h2>
+                Laporan Prioritas Tinggi
+            </h2>
 
-        <br>
+            <br>
 
-        <p>
-            Sistem digunakan untuk menerima,
-            memonitor, dan mengelola laporan
-            kerusakan fasilitas kampus yang
-            dikirim oleh mahasiswa, dosen,
-            maupun staf.
-        </p>
+            <div class="priority-box">
 
-        <br>
+                <div class="priority-item">
 
-        <p>
-            Silakan gunakan menu
-            <b>Kelola Laporan</b>
-            untuk memproses laporan dan
-            menu
-            <b>Monitoring</b>
-            untuk melihat laporan
-            prioritas tinggi.
-        </p>
+                    <h4>
+                        LP-2026-007
+                    </h4>
 
-    </div>
+                    <p>
+                        Kerusakan instalasi listrik di Laboratorium Komputer.
+                    </p>
 
-</main>
+                </div>
 
-<!-- MODAL -->
+                <div class="priority-item">
 
-<div
-id="adminModal"
-class="modal">
+                    <h4>
+                        LP-2026-011
+                    </h4>
 
-<div class="modal-content">
+                    <p>
+                        AC tidak berfungsi di Ruang Dosen Fakultas Teknik.
+                    </p>
 
-<h2>
-Detail Laporan
-</h2>
+                </div>
 
-<hr style="margin:15px 0;">
+                <div class="priority-item">
 
-<p>
-<b>ID :</b>
-LP-2026-001
-</p>
+                    <h4>
+                        LP-2026-014
+                    </h4>
 
-<br>
+                    <p>
+                        Kebocoran atap pada Gedung Perkuliahan B.
+                    </p>
 
-<p>
-<b>Nama Pelapor :</b>
-Marvella Rizkia Fitra
-</p>
+                </div>
 
-<br>
+            </div>
 
-<p>
-<b>Kategori :</b>
-AC
-</p>
+        </div>
 
-<br>
-
-<p>
-<b>Lokasi :</b>
-Gedung A Lt.2 Ruang 204
-</p>
-
-<br>
-
-<p>
-<b>Urgensi :</b>
-Tinggi
-</p>
-
-<br>
-
-<p>
-<b>Status Saat Ini :</b>
-
-Diproses
-
-</p>
-
-<br>
-
-<p>
-<b>Kronologi :</b>
-</p>
-
-<p>
-
-AC tidak mengeluarkan udara dingin.
-Terdapat suara bising dan
-tetesan air pada unit indoor.
-
-</p>
-
-<br>
-
-<label>
-
-Update Status
-
-</label>
-
-<select>
-
-<option>
-Dilaporkan
-</option>
-
-<option selected>
-Diproses
-</option>
-
-<option>
-Selesai
-</option>
-
-</select>
-
-<br><br>
-
-<button class="btn">
-
-Simpan Perubahan
-
-</button>
-
-<br><br>
-
-<button
-class="btn"
-onclick="closeModal()">
-
-Tutup
-
-</button>
+    </main>
 
 </div>
-
-</div>
-
-<script>
-
-function openModal(){
-
-document
-.getElementById(
-"adminModal"
-)
-.style.display =
-"flex";
-
-}
-
-function closeModal(){
-
-document
-.getElementById(
-"adminModal"
-)
-.style.display =
-"none";
-
-}
-
-</script>
 
 </body>
+
 </html>
