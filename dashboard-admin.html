@@ -8,7 +8,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Dashboard Admin</title>
+    <title>Dashboard Admin | Suara Kampus</title>
 
     <link rel="stylesheet"
           href="style.css">
@@ -17,15 +17,65 @@
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
+<header class="top-header">
+
+    <div class="header-left">
+
+        <img src="Logo.png"
+             alt="Logo Suara Kampus"
+             class="header-logo">
+
+        <div class="header-title">
+
+            <h2>Suara Kampus</h2>
+
+            <p>Sistem Pelaporan Kerusakan Fasilitas Kampus</p>
+
+        </div>
+
+    </div>
+
+    <div class="header-right">
+
+        <div class="notification">
+
+            🔔
+
+        </div>
+
+        <div class="user-box">
+
+            <div class="user-photo">
+
+                A
+
+            </div>
+
+            <div class="user-detail">
+
+                <h4>Administrator</h4>
+
+                <span>Admin</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
 <div class="dashboard">
+
+    <!-- SIDEBAR -->
 
     <aside class="sidebar">
 
         <div class="logo-sidebar">
 
-            <h2>
-                Admin Panel
-            </h2>
+            <h2>Menu Admin</h2>
 
         </div>
 
@@ -60,223 +110,272 @@
 
     </aside>
 
+    <!-- MAIN -->
+
     <main class="main-content">
 
-        <div class="header">
+        <!-- WELCOME -->
 
-            <h1>
-                Dashboard Admin
-            </h1>
+        <section class="welcome-card">
 
-            <p>
-                Selamat datang kembali. Kelola laporan kerusakan fasilitas kampus dengan lebih mudah dan terorganisir.
-            </p>
+            <div class="welcome-text">
 
-        </div>
+                <h1>
+
+                    Dashboard Administrator 
+
+                </h1>
+
+                <p>
+
+                    Selamat datang kembali di Sistem Pelaporan Kerusakan Fasilitas Kampus.
+                    Kelola laporan yang masuk, pantau proses penanganan,
+                    serta lakukan monitoring terhadap seluruh fasilitas kampus.
+
+                </p>
+
+            </div>
+
+        </section>
 
         <!-- STATISTIK -->
 
-        <div class="stats">
+        <section class="stats">
 
             <div class="card stat-card">
 
-                <h3>
-                    Total Laporan
-                </h3>
+                <h3>Total Laporan</h3>
 
-                <h2>
-                    35
-                </h2>
+                <h2>35</h2>
 
             </div>
 
             <div class="card stat-card">
 
-                <h3>
-                    Dilaporkan
-                </h3>
+                <h3>Dilaporkan</h3>
 
-                <h2>
-                    10
-                </h2>
+                <h2>10</h2>
 
             </div>
 
             <div class="card stat-card">
 
-                <h3>
-                    Diproses
-                </h3>
+                <h3>Diproses</h3>
 
-                <h2>
-                    15
-                </h2>
+                <h2>15</h2>
 
             </div>
 
             <div class="card stat-card">
 
-                <h3>
-                    Selesai
-                </h3>
+                <h3>Selesai</h3>
 
-                <h2>
-                    10
-                </h2>
+                <h2>10</h2>
 
             </div>
 
-        </div>
+        </section>
 
         <!-- MENU CEPAT -->
 
-        <div class="card">
+        <section class="quick-menu">
 
-            <h2>
-                Menu Cepat
-            </h2>
+            <a href="kelola-laporan.html"
+               class="quick-card">
 
-            <br>
+                <h3>
 
-            <div class="quick-menu">
+                    Kelola Laporan
 
-                <a href="kelola-laporan.html"
-                   class="quick-card">
+                </h3>
 
-                    <h3>
-                        Kelola Laporan
-                    </h3>
+                <p>
+
+                    Periksa, verifikasi dan ubah status laporan.
+
+                </p>
+
+            </a>
+
+            <a href="monitoring.html"
+               class="quick-card">
+
+                <h3>
+
+                    Monitoring
+
+                </h3>
+
+                <p>
+
+                    Pantau seluruh laporan prioritas tinggi.
+
+                </p>
+
+            </a>
+
+        </section>
+
+        <!-- TABEL -->
+
+        <section class="card">
+
+            <div class="table-header">
+
+                <div>
+
+                    <h2>
+
+                        Laporan Terbaru
+
+                    </h2>
 
                     <p>
-                        Lihat, periksa, dan ubah status laporan yang masuk.
+
+                        Daftar laporan terbaru yang diterima sistem.
+
                     </p>
 
-                </a>
-
-                <a href="monitoring.html"
-                   class="quick-card">
-
-                    <h3>
-                        Monitoring
-                    </h3>
-
-                    <p>
-                        Pantau laporan dengan tingkat urgensi tinggi.
-                    </p>
-
-                </a>
+                </div>
 
             </div>
-
-        </div>
-
-        <!-- LAPORAN TERBARU -->
-
-        <div class="card">
-
-            <h2>
-                Laporan Terbaru
-            </h2>
-
-            <br>
 
             <div class="table-container">
 
                 <table>
 
-                    <tr>
+                    <thead>
 
-                        <th>ID</th>
-                        <th>Pelapor</th>
-                        <th>Kategori</th>
-                        <th>Lokasi</th>
-                        <th>Status</th>
+                        <tr>
 
-                    </tr>
+                            <th>ID</th>
 
-                    <tr>
+                            <th>Pelapor</th>
 
-                        <td>LP-2026-001</td>
-                        <td>Vella</td>
-                        <td>AC</td>
-                        <td>Gedung A Lt.2</td>
+                            <th>Kategori</th>
 
-                        <td>
+                            <th>Lokasi</th>
 
-                            <span class="badge badge-warning">
+                            <th>Status</th>
 
-                                Diproses
+                        </tr>
 
-                            </span>
+                    </thead>
 
-                        </td>
+                    <tbody>
 
-                    </tr>
+                        <tr>
 
-                    <tr>
+                            <td>LP-2026-001</td>
 
-                        <td>LP-2026-002</td>
-                        <td>Rizki</td>
-                        <td>Listrik</td>
-                        <td>Laboratorium</td>
+                            <td>ELA</td>
 
-                        <td>
+                            <td>AC</td>
 
-                            <span class="badge badge-danger">
+                            <td>Gedung A Lt.2</td>
 
-                                Dilaporkan
+                            <td>
 
-                            </span>
+                                <span class="badge badge-warning">
 
-                        </td>
+                                    Diproses
 
-                    </tr>
+                                </span>
 
-                    <tr>
+                            </td>
 
-                        <td>LP-2026-003</td>
-                        <td>Dina</td>
-                        <td>Internet</td>
-                        <td>Perpustakaan</td>
+                        </tr>
 
-                        <td>
+                        <tr>
 
-                            <span class="badge badge-success">
+                            <td>LP-2026-002</td>
 
-                                Selesai
+                            <td>Rizki</td>
 
-                            </span>
+                            <td>Listrik</td>
 
-                        </td>
+                            <td>Laboratorium</td>
 
-                    </tr>
+                            <td>
+
+                                <span class="badge badge-danger">
+
+                                    Dilaporkan
+
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>LP-2026-003</td>
+
+                            <td>Dina</td>
+
+                            <td>Internet</td>
+
+                            <td>Perpustakaan</td>
+
+                            <td>
+
+                                <span class="badge badge-success">
+
+                                    Selesai
+
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
 
                 </table>
 
             </div>
 
-        </div>
+        </section>
 
-        <!-- PRIORITAS TINGGI -->
+        <!-- PRIORITAS -->
 
-        <div class="card">
+        <section class="card">
 
-            <h2>
-                Laporan Prioritas Tinggi
-            </h2>
+            <div class="table-header">
 
-            <br>
+                <div>
+
+                    <h2>
+
+                        Laporan Prioritas Tinggi
+
+                    </h2>
+
+                    <p>
+
+                        Laporan yang memerlukan penanganan segera.
+
+                    </p>
+
+                </div>
+
+            </div>
 
             <div class="priority-box">
 
                 <div class="priority-item">
 
                     <h4>
+
                         LP-2026-007
+
                     </h4>
 
                     <p>
+
                         Kerusakan instalasi listrik di Laboratorium Komputer.
+
                     </p>
 
                 </div>
@@ -284,11 +383,15 @@
                 <div class="priority-item">
 
                     <h4>
+
                         LP-2026-011
+
                     </h4>
 
                     <p>
+
                         AC tidak berfungsi di Ruang Dosen Fakultas Teknik.
+
                     </p>
 
                 </div>
@@ -296,18 +399,40 @@
                 <div class="priority-item">
 
                     <h4>
+
                         LP-2026-014
+
                     </h4>
 
                     <p>
+
                         Kebocoran atap pada Gedung Perkuliahan B.
+
                     </p>
 
                 </div>
 
             </div>
 
-        </div>
+        </section>
+
+        <!-- FOOTER -->
+
+        <footer class="footer">
+
+            <p>
+
+                © 2026 <strong>Suara Kampus</strong>
+
+            </p>
+
+            <span>
+
+                Sistem Pelaporan Kerusakan Fasilitas Kampus Universitas Lampung
+
+            </span>
+
+        </footer>
 
     </main>
 
