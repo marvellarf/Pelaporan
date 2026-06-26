@@ -8,7 +8,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Dashboard Pelapor</title>
+    <title>Dashboard Pelapor | Suara Kampus</title>
 
     <link rel="stylesheet"
           href="style.css">
@@ -17,15 +17,67 @@
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
+<header class="top-header">
+
+    <div class="header-left">
+
+        <img src="Logo.png"
+             alt="Logo Suara Kampus"
+             class="header-logo">
+
+        <div class="header-title">
+
+            <h2>Suara Kampus</h2>
+
+            <p>Sistem Pelaporan Kerusakan Fasilitas Kampus</p>
+
+        </div>
+
+    </div>
+
+    <div class="header-right">
+
+        <div class="notification">
+
+            🔔
+
+        </div>
+
+        <div class="user-box">
+
+            <div class="user-photo">
+
+                M
+
+            </div>
+
+            <div class="user-detail">
+
+                <h4>Marvella</h4>
+
+                <span>Mahasiswa</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- ================= DASHBOARD ================= -->
+
 <div class="dashboard">
+
+    <!-- SIDEBAR -->
 
     <aside class="sidebar">
 
         <div class="logo-sidebar">
 
-            <h2>
-                Facility Report
-            </h2>
+            <h2>Menu</h2>
 
         </div>
 
@@ -66,173 +118,266 @@
 
     </aside>
 
+
+    <!-- MAIN CONTENT -->
+
     <main class="main-content">
 
-        <div class="header">
 
-            <h1>
-                Dashboard Pelapor
-            </h1>
+        <!-- WELCOME -->
 
-            <p>
-                Ringkasan aktivitas pelaporan fasilitas kampus
-            </p>
+        <section class="welcome-card">
 
-        </div>
+            <div class="welcome-text">
 
-        <div class="stats">
+                <h1>
+
+                    Selamat Datang, Marvella 👋
+
+                </h1>
+
+                <p>
+
+                    <strong>Gunakan menu di sebelah kiri untuk membuat laporan,
+                    memantau proses perbaikan, serta melihat riwayat
+                    laporan yang pernah dikirim </strong>
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- STATISTIK -->
+
+        <section class="stats">
 
             <div class="card stat-card">
 
-                <h3>
-                    Total Laporan
-                </h3>
+                <h3>Total Laporan</h3>
 
-                <h2>
-                    12
-                </h2>
+                <h2>12</h2>
 
             </div>
 
             <div class="card stat-card">
 
-                <h3>
-                    Sedang Diproses
-                </h3>
+                <h3>Diproses</h3>
 
-                <h2>
-                    4
-                </h2>
+                <h2>4</h2>
 
             </div>
 
             <div class="card stat-card">
 
-                <h3>
-                    Selesai
-                </h3>
+                <h3>Selesai</h3>
 
-                <h2>
-                    7
-                </h2>
+                <h2>7</h2>
 
             </div>
 
             <div class="card stat-card">
 
-                <h3>
-                    Urgensi Tinggi
-                </h3>
+                <h3>Urgensi Tinggi</h3>
 
-                <h2>
-                    1
-                </h2>
+                <h2>1</h2>
 
             </div>
 
-        </div>
+        </section>
 
-        <div class="card">
 
-            <h2>
-                Aktivitas Laporan Terbaru
-            </h2>
 
-            <br>
+        <!-- TABEL -->
+
+        <section class="card">
+
+            <div class="table-header">
+
+                <div>
+
+                    <h2>
+
+                        Aktivitas Laporan Terbaru
+
+                    </h2>
+
+                    <p>
+
+                        Riwayat laporan terakhir yang telah Anda kirim.
+
+                    </p>
+
+                </div>
+
+            </div>
 
             <div class="table-container">
 
                 <table>
 
-                    <tr>
+                    <thead>
 
-                        <th>ID Laporan</th>
+                        <tr>
 
-                        <th>Tanggal</th>
+                            <th>ID</th>
 
-                        <th>Kategori</th>
+                            <th>Tanggal</th>
 
-                        <th>Lokasi</th>
+                            <th>Kategori</th>
 
-                        <th>Status</th>
+                            <th>Lokasi</th>
 
-                    </tr>
+                            <th>Status</th>
 
-                    <tr>
+                        </tr>
 
-                        <td>LP-2026-001</td>
+                    </thead>
 
-                        <td>12 Mei 2026</td>
+                    <tbody>
 
-                        <td>AC</td>
+                        <tr>
 
-                        <td>Gedung A Lt.2 Ruang 204</td>
+                            <td>LP-2026-001</td>
 
-                        <td>
+                            <td>12 Mei 2026</td>
 
-                            <span class="badge badge-warning">
+                            <td>AC</td>
 
-                                Diproses
+                            <td>Gedung A Lt.2 Ruang 204</td>
 
-                            </span>
+                            <td>
 
-                        </td>
+                                <span class="badge badge-warning">
 
-                    </tr>
+                                    Diproses
 
-                    <tr>
+                                </span>
 
-                        <td>LP-2026-002</td>
+                            </td>
 
-                        <td>14 Mei 2026</td>
+                        </tr>
 
-                        <td>Listrik</td>
+                        <tr>
 
-                        <td>Lab Komputer 1</td>
+                            <td>LP-2026-002</td>
 
-                        <td>
+                            <td>14 Mei 2026</td>
 
-                            <span class="badge badge-success">
+                            <td>Listrik</td>
 
-                                Selesai
+                            <td>Lab Komputer 1</td>
 
-                            </span>
+                            <td>
 
-                        </td>
+                                <span class="badge badge-success">
 
-                    </tr>
+                                    Selesai
 
-                    <tr>
+                                </span>
 
-                        <td>LP-2026-003</td>
+                            </td>
 
-                        <td>16 Mei 2026</td>
+                        </tr>
 
-                        <td>Furniture</td>
+                        <tr>
 
-                        <td>Perpustakaan</td>
+                            <td>LP-2026-003</td>
 
-                        <td>
+                            <td>16 Mei 2026</td>
 
-                            <span class="badge badge-danger">
+                            <td>Furniture</td>
 
-                                Dilaporkan
+                            <td>Perpustakaan</td>
 
-                            </span>
+                            <td>
 
-                        </td>
+                                <span class="badge badge-danger">
 
-                    </tr>
+                                    Dilaporkan
+
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
 
                 </table>
 
             </div>
 
-        </div>
+        </section>
+
+
+
+        <!-- QUICK MENU -->
+
+        <section class="quick-action">
+
+            <a href="buat-laporan.html"
+               class="action-card">
+
+                <h3>
+
+                    + Buat Laporan Baru
+
+                </h3>
+
+                <p>
+
+                    Laporkan kerusakan fasilitas kampus dengan cepat.
+
+                </p>
+
+            </a>
+
+            <a href="riwayat-laporan.html"
+               class="action-card">
+
+                <h3>
+
+                    Riwayat Laporan
+
+                </h3>
+
+                <p>
+
+                    Pantau status seluruh laporan Anda.
+
+                </p>
+
+            </a>
+
+        </section>
+
+
+
+        <!-- FOOTER -->
+
+        <footer class="footer">
+
+            <p>
+
+                © 2026 <strong>Suara Kampus</strong>
+
+            </p>
+
+            <span>
+
+                Sistem Pelaporan Kerusakan Fasilitas Kampus Universitas Lampung
+
+            </span>
+
+        </footer>
 
     </main>
 
 </div>
 
 </body>
+
 </html>
