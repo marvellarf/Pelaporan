@@ -5,67 +5,148 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <title>Profil Pengguna</title>
+    <title>Profil | Suara Kampus</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+          href="style.css">
 
 </head>
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
+<header class="top-header">
+
+    <div class="header-left">
+
+        <img src="Logo.png"
+             class="header-logo"
+             alt="Logo">
+
+        <div class="header-title">
+
+            <h2>Suara Kampus</h2>
+
+            <p>Sistem Pelaporan Kerusakan Fasilitas Kampus</p>
+
+        </div>
+
+    </div>
+
+    <div class="header-right">
+
+        <div class="notification">
+
+            🔔
+
+        </div>
+
+        <div class="user-box">
+
+            <div class="user-photo">
+
+                M
+
+            </div>
+
+            <div class="user-detail">
+
+                <h4>Marvella</h4>
+
+                <span>Mahasiswa</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
 <div class="dashboard">
+
+    <!-- SIDEBAR -->
 
     <aside class="sidebar">
 
         <div class="logo-sidebar">
 
-            <h2>Facility Report</h2>
+            <h2>Menu</h2>
 
         </div>
 
         <div class="sidebar-menu">
 
             <a href="dashboard-pelapor.html">
+
                 Dashboard
+
             </a>
 
             <a href="buat-laporan.html">
+
                 Buat Laporan
+
             </a>
 
             <a href="riwayat-laporan.html">
+
                 Riwayat Laporan
+
             </a>
 
-            <a href="profil.html" class="active">
+            <a href="profil.html"
+               class="active">
+
                 Profil
+
             </a>
 
             <a href="index.html">
+
                 Logout
+
             </a>
 
         </div>
 
     </aside>
 
+    <!-- MAIN -->
+
     <main class="main-content">
 
-        <div class="header">
+        <!-- WELCOME -->
 
-            <h1>Profil Pengguna</h1>
+        <section class="welcome-card">
 
-            <p>
-                Informasi akun pelapor fasilitas kampus
-            </p>
+            <div class="welcome-text">
 
-        </div>
+                <h1>
 
-        <!-- PROFIL UTAMA -->
+                    Profil Pengguna
 
-        <div class="card">
+                </h1>
+
+                <p>
+
+                    Kelola informasi akun Anda. Pastikan data yang tersimpan
+                    selalu diperbarui agar proses pelaporan fasilitas kampus
+                    berjalan dengan lancar.
+
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- PROFIL -->
+
+        <section class="card">
 
             <div class="profile-top">
 
@@ -79,11 +160,15 @@
                 <div class="profile-info">
 
                     <h2>
-                        Vella
+
+                        Marvella
+
                     </h2>
 
                     <p>
+
                         Mahasiswa Pendidikan Teknologi Informasi
+
                     </p>
 
                     <span class="status-active">
@@ -96,14 +181,16 @@
 
             </div>
 
-        </div>
+        </section>
 
-        <!-- DATA AKADEMIK -->
+        <!-- AKADEMIK -->
 
-        <div class="card">
+        <section class="card">
 
             <h2>
+
                 Informasi Akademik
+
             </h2>
 
             <div class="profile-grid">
@@ -112,7 +199,7 @@
 
                     <label>NIM</label>
 
-                    <h4>12345678</h4>
+                    <h4>2313025001</h4>
 
                 </div>
 
@@ -128,7 +215,7 @@
 
                     <label>Fakultas</label>
 
-                    <h4>Keguruan </h4>
+                    <h4>FKIP</h4>
 
                 </div>
 
@@ -142,14 +229,16 @@
 
             </div>
 
-        </div>
+        </section>
 
-        <!-- DATA KONTAK -->
+        <!-- KONTAK -->
 
-        <div class="card">
+        <section class="card">
 
             <h2>
+
                 Informasi Kontak
+
             </h2>
 
             <div class="profile-grid">
@@ -158,7 +247,7 @@
 
                     <label>Email</label>
 
-                    <h4>mrfll0211@</h4>
+                    <h4>marvella@email.com</h4>
 
                 </div>
 
@@ -166,7 +255,7 @@
 
                     <label>Nomor Telepon</label>
 
-                    <h4>1234-5678-9101</h4>
+                    <h4>0812-3456-7890</h4>
 
                 </div>
 
@@ -174,7 +263,7 @@
 
                     <label>Alamat</label>
 
-                    <h4>Natar</h4>
+                    <h4>Natar, Lampung Selatan</h4>
 
                 </div>
 
@@ -188,14 +277,16 @@
 
             </div>
 
-        </div>
+        </section>
 
-        <!-- INFORMASI AKUN -->
+        <!-- AKUN -->
 
-        <div class="card">
+        <section class="card">
 
             <h2>
+
                 Informasi Akun
+
             </h2>
 
             <div class="profile-grid">
@@ -204,13 +295,13 @@
 
                     <label>Username</label>
 
-                    <h4>vellarf</h4>
+                    <h4>marvella</h4>
 
                 </div>
 
                 <div class="profile-box">
 
-                    <label>Status Akun</label>
+                    <label>Status</label>
 
                     <h4>Aktif</h4>
 
@@ -250,12 +341,29 @@
 
             </div>
 
-        </div>
+        </section>
+
+        <!-- FOOTER -->
+
+        <footer class="footer">
+
+            <p>
+
+                © 2026 <strong>Suara Kampus</strong>
+
+            </p>
+
+            <span>
+
+                Sistem Pelaporan Kerusakan Fasilitas Kampus Universitas Lampung
+
+            </span>
+
+        </footer>
 
     </main>
 
 </div>
 
 </body>
-
 </html>
