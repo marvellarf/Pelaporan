@@ -3,144 +3,278 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<title>Monitoring Laporan</title>
+    <title>Monitoring Laporan | Suara Kampus</title>
 
-<link rel="stylesheet"
-href="style.css">
+    <link rel="stylesheet"
+          href="style.css">
 
 </head>
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
+<header class="top-header">
+
+    <div class="header-left">
+
+        <img src="Logo.png"
+             alt="Logo Suara Kampus"
+             class="header-logo">
+
+        <div class="header-title">
+
+            <h2>Suara Kampus</h2>
+
+            <p>Sistem Pelaporan Kerusakan Fasilitas Kampus</p>
+
+        </div>
+
+    </div>
+
+    <div class="header-right">
+
+        <div class="user-box">
+
+            <div class="user-photo">
+
+                A
+
+            </div>
+
+            <div class="user-detail">
+
+                <h4>Administrator</h4>
+
+                <span>Admin</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
 <div class="dashboard">
 
-<aside class="sidebar">
+    <!-- SIDEBAR -->
 
-<div class="logo-sidebar">
+    <aside class="sidebar">
 
-<h2>Admin Panel</h2>
+        <div class="logo-sidebar">
 
-</div>
+            <h2>Menu Admin</h2>
 
-<div class="sidebar-menu">
+        </div>
 
-<a href="dashboard-admin.html">
+        <div class="sidebar-menu">
 
-Dashboard
+            <a href="dashboard-admin.html">
 
-</a>
+                Dashboard
 
-<a href="kelola-laporan.html">
+            </a>
 
-Kelola Laporan
+            <a href="kelola-laporan.html">
 
-</a>
+                Kelola Laporan
 
-<a href="monitoring.html"
-class="active">
+            </a>
 
-Monitoring
+            <a href="monitoring.html"
+               class="active">
 
-</a>
+                Monitoring
 
-<a href="index.html">
+            </a>
 
-Logout
+            <a href="index.html">
 
-</a>
+                Logout
 
-</div>
+            </a>
 
-</aside>
+        </div>
 
-<main class="main-content">
+    </aside>
 
-<div class="header">
+    <!-- MAIN -->
 
-<h1>
-Monitoring Laporan
-</h1>
+    <main class="main-content">
 
-<p>
-Laporan dengan urgensi tinggi
-</p>
+        <!-- WELCOME -->
 
-</div>
+        <section class="welcome-card">
 
-<div class="card">
+            <div class="welcome-text">
 
-<h2>
-Daftar Prioritas
-</h2>
+                <h1>
 
-<br>
+                    Monitoring Laporan
 
-<div class="table-container">
+                </h1>
 
-<table>
+                <p>
 
-<tr>
+                    Pantau seluruh laporan dengan tingkat urgensi tinggi
+                    untuk memastikan proses penanganan berjalan tepat waktu.
 
-<th>ID</th>
-<th>Kategori</th>
-<th>Lokasi</th>
-<th>Urgensi</th>
-<th>Status</th>
+                </p>
 
-</tr>
+            </div>
 
-<tr>
+        </section>
 
-<td>LP-2026-001</td>
-<td>AC</td>
-<td>Gedung A Lt.2</td>
-<td>Tinggi</td>
+        <!-- TABEL -->
 
-<td>
+        <section class="card">
 
-<span class="badge badge-warning">
+            <div class="table-header">
 
-Diproses
+                <div>
 
-</span>
+                    <h2>
 
-</td>
+                        Daftar Prioritas
 
-</tr>
+                    </h2>
 
-<tr>
+                    <p>
 
-<td>LP-2026-007</td>
-<td>Listrik</td>
-<td>Laboratorium</td>
-<td>Tinggi</td>
+                        Laporan yang membutuhkan perhatian segera.
 
-<td>
+                    </p>
 
-<span class="badge badge-danger">
+                </div>
 
-Dilaporkan
+            </div>
 
-</span>
+            <div class="table-container">
 
-</td>
+                <table>
 
-</tr>
+                    <thead>
 
-</table>
+                        <tr>
 
-</div>
+                            <th>ID</th>
 
-</div>
+                            <th>Kategori</th>
 
-</main>
+                            <th>Lokasi</th>
+
+                            <th>Urgensi</th>
+
+                            <th>Status</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>LP-2026-001</td>
+
+                            <td>AC</td>
+
+                            <td>Gedung A Lt.2</td>
+
+                            <td>Tinggi</td>
+
+                            <td>
+
+                                <span class="badge badge-warning">
+
+                                    Diproses
+
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>LP-2026-007</td>
+
+                            <td>Listrik</td>
+
+                            <td>Laboratorium Komputer</td>
+
+                            <td>Tinggi</td>
+
+                            <td>
+
+                                <span class="badge badge-danger">
+
+                                    Dilaporkan
+
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>LP-2026-011</td>
+
+                            <td>Bangunan</td>
+
+                            <td>Gedung B Lt.3</td>
+
+                            <td>Tinggi</td>
+
+                            <td>
+
+                                <span class="badge badge-warning">
+
+                                    Diproses
+
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+        <!-- FOOTER -->
+
+        <footer class="footer">
+
+            <p>
+
+                © 2026 <strong>Suara Kampus</strong>
+
+            </p>
+
+            <span>
+
+                Sistem Pelaporan Kerusakan Fasilitas Kampus Universitas Lampung
+
+            </span>
+
+        </footer>
+
+    </main>
 
 </div>
 
 </body>
+
 </html>
