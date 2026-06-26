@@ -3,228 +3,946 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<title>Kelola Laporan</title>
+    <title>Kelola Laporan | Suara Kampus</title>
 
-<link rel="stylesheet"
-href="style.css">
+    <link rel="stylesheet"
+          href="style.css">
 
 </head>
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
+<header class="top-header">
+
+    <div class="header-left">
+
+        <img src="Logo.png"
+             alt="Logo Suara Kampus"
+             class="header-logo">
+
+        <div class="header-title">
+
+            <h2>Suara Kampus</h2>
+
+            <p>
+
+                Sistem Pelaporan Kerusakan Fasilitas Kampus
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="header-right">
+
+        <div class="user-box">
+
+            <div class="user-photo">
+
+                A
+
+            </div>
+
+            <div class="user-detail">
+
+                <h4>Administrator</h4>
+
+                <span>Admin Sistem</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- ================= DASHBOARD ================= -->
+
 <div class="dashboard">
 
-<aside class="sidebar">
+    <!-- SIDEBAR -->
 
-<div class="logo-sidebar">
+    <aside class="sidebar">
 
-<h2>Admin Panel</h2>
+        <div class="logo-sidebar">
+
+            <h2>
+
+                Menu Admin
+
+            </h2>
+
+        </div>
+
+        <div class="sidebar-menu">
+
+            <a href="dashboard-admin.html">
+
+                Dashboard
+
+            </a>
+
+            <a href="kelola-laporan.html"
+               class="active">
+
+                Kelola Laporan
+
+            </a>
+
+            <a href="monitoring.html">
+
+                Monitoring
+
+            </a>
+
+            <a href="index.html">
+
+                Logout
+
+            </a>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <!-- WELCOME -->
+
+        <section class="welcome-card">
+
+            <div class="welcome-text">
+
+                <h1>
+
+                    Kelola Laporan
+
+                </h1>
+
+                <p>
+
+                    Halaman ini digunakan oleh administrator untuk
+                    melihat, memverifikasi, memperbarui status,
+                    serta memantau seluruh laporan kerusakan
+                    fasilitas kampus yang dikirim oleh pelapor.
+
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- FILTER -->
+
+        <section class="card">
+
+            <div class="table-header">
+
+                <div>
+
+                    <h2>
+
+                        Filter Pencarian
+
+                    </h2>
+
+                    <p>
+
+                        Cari laporan berdasarkan ID, nama pelapor,
+                        kategori, atau status laporan.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="filter-grid">
+
+                <input
+                    type="text"
+                    placeholder="Cari ID atau nama pelapor">
+
+                <select>
+
+                    <option>
+
+                        Semua Kategori
+
+                    </option>
+
+                    <option>
+
+                        AC
+
+                    </option>
+
+                    <option>
+
+                        Listrik
+
+                    </option>
+
+                    <option>
+
+                        Internet
+
+                    </option>
+
+                    <option>
+
+                        Furniture
+
+                    </option>
+
+                    <option>
+
+                        Bangunan
+
+                    </option>
+
+                    <option>
+
+                        Air
+
+                    </option>
+
+                </select>
+
+                <select>
+
+                    <option>
+
+                        Semua Status
+
+                    </option>
+
+                    <option>
+
+                        Dilaporkan
+
+                    </option>
+
+                    <option>
+
+                        Diproses
+
+                    </option>
+
+                    <option>
+
+                        Selesai
+
+                    </option>
+
+                </select>
+
+                <button class="btn">
+
+                    Cari
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- TABEL LAPORAN -->
+
+        <section class="card">
+
+            <div class="table-header">
+
+                <div>
+
+                    <h2>
+
+                        Daftar Laporan Masuk
+
+                    </h2>
+
+                    <p>
+
+                        Seluruh laporan kerusakan fasilitas kampus yang
+                        telah dikirim oleh pengguna.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Tanggal</th>
+
+                            <th>Pelapor</th>
+
+                            <th>Kategori</th>
+
+                            <th>Lokasi</th>
+
+                            <th>Urgensi</th>
+
+                            <th>Status</th>
+
+                            <th>Aksi</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>LP-2026-001</td>
+
+                            <td>12 Mei 2026</td>
+
+                            <td>Marvella</td>
+
+                            <td>AC</td>
+
+                            <td>Gedung A Lt.2 Ruang 204</td>
+
+                            <td>Tinggi</td>
+
+                            <td>
+
+                                <span class="badge badge-warning">
+
+                                    Diproses
+
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button class="btn-detail"
+                                        onclick="openModal()">
+
+                                    Detail
+
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>LP-2026-002</td>
+
+                            <td>13 Mei 2026</td>
+
+                            <td>Rizki</td>
+
+                            <td>Listrik</td>
+
+                            <td>Laboratorium Komputer</td>
+
+                            <td>Tinggi</td>
+
+                            <td>
+
+                                <span class="badge badge-danger">
+
+                                    Dilaporkan
+
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button class="btn-detail"
+                                        onclick="openModal()">
+
+                                    Detail
+
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>LP-2026-003</td>
+
+                            <td>14 Mei 2026</td>
+
+                            <td>Dina</td>
+
+                            <td>Internet</td>
+
+                            <td>Perpustakaan</td>
+
+                            <td>Sedang</td>
+
+                            <td>
+
+                                <span class="badge badge-success">
+
+                                    Selesai
+
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button class="btn-detail"
+                                        onclick="openModal()">
+
+                                    Detail
+
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>LP-2026-004</td>
+
+                            <td>15 Mei 2026</td>
+
+                            <td>Fajar</td>
+
+                            <td>Furniture</td>
+
+                            <td>Gedung B Ruang 203</td>
+
+                            <td>Rendah</td>
+
+                            <td>
+
+                                <span class="badge badge-success">
+
+                                    Selesai
+
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button class="btn-detail"
+                                        onclick="openModal()">
+
+                                    Detail
+
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>LP-2026-005</td>
+
+                            <td>16 Mei 2026</td>
+
+                            <td>Salsa</td>
+
+                            <td>Bangunan</td>
+
+                            <td>Gedung C Lt.1</td>
+
+                            <td>Tinggi</td>
+
+                            <td>
+
+                                <span class="badge badge-warning">
+
+                                    Diproses
+
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button class="btn-detail"
+                                        onclick="openModal()">
+
+                                    Detail
+
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>LP-2026-006</td>
+
+                            <td>17 Mei 2026</td>
+
+                            <td>Andi</td>
+
+                            <td>Air</td>
+
+                            <td>Toilet Gedung D</td>
+
+                            <td>Sedang</td>
+
+                            <td>
+
+                                <span class="badge badge-danger">
+
+                                    Dilaporkan
+
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button class="btn-detail"
+                                        onclick="openModal()">
+
+                                    Detail
+
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>LP-2026-007</td>
+
+                            <td>18 Mei 2026</td>
+
+                            <td>Nabila</td>
+
+                            <td>AC</td>
+
+                            <td>Gedung F Ruang Dosen</td>
+
+                            <td>Sedang</td>
+
+                            <td>
+
+                                <span class="badge badge-warning">
+
+                                    Diproses
+
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button class="btn-detail"
+                                        onclick="openModal()">
+
+                                    Detail
+
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>LP-2026-008</td>
+
+                            <td>19 Mei 2026</td>
+
+                            <td>Yusuf</td>
+
+                            <td>Internet</td>
+
+                            <td>Gedung E Lt.3</td>
+
+                            <td>Rendah</td>
+
+                            <td>
+
+                                <span class="badge badge-success">
+
+                                    Selesai
+
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button class="btn-detail"
+                                        onclick="openModal()">
+
+                                    Detail
+
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>LP-2026-009</td>
+
+                            <td>20 Mei 2026</td>
+
+                            <td>Putri</td>
+
+                            <td>Listrik</td>
+
+                            <td>Aula Fakultas</td>
+
+                            <td>Tinggi</td>
+
+                            <td>
+
+                                <span class="badge badge-warning">
+
+                                    Diproses
+
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button class="btn-detail"
+                                        onclick="openModal()">
+
+                                    Detail
+
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>LP-2026-010</td>
+
+                            <td>21 Mei 2026</td>
+
+                            <td>Bima</td>
+
+                            <td>Furniture</td>
+
+                            <td>Ruang Seminar</td>
+
+                            <td>Rendah</td>
+
+                            <td>
+
+                                <span class="badge badge-danger">
+
+                                    Dilaporkan
+
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button class="btn-detail"
+                                        onclick="openModal()">
+
+                                    Detail
+
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+                <!-- FOOTER -->
+
+        <footer class="footer">
+
+            <p>
+
+                © 2026 <strong>Suara Kampus</strong>
+
+            </p>
+
+            <span>
+
+                Sistem Pelaporan Kerusakan Fasilitas Kampus Universitas Lampung
+
+            </span>
+
+        </footer>
+
+    </main>
 
 </div>
 
-<div class="sidebar-menu">
-
-<a href="dashboard-admin.html">
-
-Dashboard
-
-</a>
-
-<a href="kelola-laporan.html"
-class="active">
-
-Kelola Laporan
-
-</a>
-
-<a href="monitoring.html">
-
-Monitoring
-
-</a>
-
-<a href="index.html">
-
-Logout
-
-</a>
-
-</div>
-
-</aside>
-
-<main class="main-content">
-
-<div class="header">
-
-<h1>
-Kelola Laporan
-</h1>
-
-<p>
-Manajemen seluruh laporan masuk
-</p>
-
-</div>
-
-<div class="card">
-
-<div class="filter-grid">
-
-<input
-type="text"
-placeholder="Cari laporan">
-
-<select>
-
-<option>Semua Kategori</option>
-<option>AC</option>
-<option>Listrik</option>
-<option>Internet</option>
-<option>Furniture</option>
-
-</select>
-
-<select>
-
-<option>Semua Status</option>
-<option>Dilaporkan</option>
-<option>Diproses</option>
-<option>Selesai</option>
-
-</select>
-
-<button class="btn">
-
-Cari
-
-</button>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<div class="table-container">
-
-<table>
-
-<tr>
-
-<th>ID</th>
-<th>Pelapor</th>
-<th>Kategori</th>
-<th>Lokasi</th>
-<th>Status</th>
-<th>Aksi</th>
-
-</tr>
-
-<tr>
-
-<td>LP-2026-001</td>
-<td>Marvella</td>
-<td>AC</td>
-<td>Gedung A Lt.2</td>
-
-<td>
-
-<span class="badge badge-warning">
-
-Diproses
-
-</span>
-
-</td>
-
-<td>
-
-<button
-onclick="openModal()">
-
-Detail
-
-</button>
-
-</td>
-
-</tr>
-
-</table>
-
-</div>
-
-</div>
-
-</main>
-
-</div>
+<!-- ================= MODAL DETAIL ================= -->
 
 <div
 id="adminModal"
 class="modal">
 
-<div class="modal-content">
+    <div class="modal-content">
 
-<h2>
-Detail Laporan
-</h2>
+        <h2>
 
-<hr style="margin:15px 0;">
+            Detail Laporan
 
-<p><b>ID :</b> LP-2026-001</p>
+        </h2>
 
-<br>
+        <hr style="margin:20px 0;">
 
-<p><b>Pelapor :</b> Marvella</p>
+        <div class="profile-grid">
 
-<br>
+            <div class="profile-box">
 
-<p><b>Kategori :</b> AC</p>
+                <label>
 
-<br>
+                    ID Laporan
 
-<p><b>Lokasi :</b> Gedung A Lt.2</p>
+                </label>
 
-<br>
+                <h4>
 
-<label>
-Update Status
-</label>
+                    LP-2026-001
 
-<select>
+                </h4>
 
-<option>Dilaporkan</option>
-<option selected>Diproses</option>
-<option>Selesai</option>
+            </div>
 
-</select>
+            <div class="profile-box">
 
-<br><br>
+                <label>
 
-<button class="btn">
+                    Tanggal Laporan
 
-Simpan Perubahan
+                </label>
 
-</button>
+                <h4>
 
-<br><br>
+                    12 Mei 2026
 
-<button
-class="btn"
-onclick="closeModal()">
+                </h4>
 
-Tutup
+            </div>
 
-</button>
+            <div class="profile-box">
 
-</div>
+                <label>
+
+                    Nama Pelapor
+
+                </label>
+
+                <h4>
+
+                    ela
+
+                </h4>
+
+            </div>
+
+            <div class="profile-box">
+
+                <label>
+
+                    Jenis Pengguna
+
+                </label>
+
+                <h4>
+
+                    Mahasiswa
+
+                </h4>
+
+            </div>
+
+            <div class="profile-box">
+
+                <label>
+
+                    Kategori Kerusakan
+
+                </label>
+
+                <h4>
+
+                    AC
+
+                </h4>
+
+            </div>
+
+            <div class="profile-box">
+
+                <label>
+
+                    Tingkat Urgensi
+
+                </label>
+
+                <h4>
+
+                    Tinggi
+
+                </h4>
+
+            </div>
+
+            <div class="profile-box full">
+
+                <label>
+
+                    Lokasi Kerusakan
+
+                </label>
+
+                <h4>
+
+                    Gedung A Lantai 2 Ruang 204
+
+                </h4>
+
+            </div>
+
+        </div>
+
+        <br>
+
+        <label>
+
+            Kronologi Kerusakan
+
+        </label>
+
+        <textarea
+            rows="5"
+            readonly>
+
+AC di ruang 204 tidak lagi mengeluarkan udara dingin sejak pagi. Saat dinyalakan terdengar suara cukup keras dan terdapat tetesan air dari unit indoor sehingga mengganggu kegiatan perkuliahan.
+
+        </textarea>
+
+        <br><br>
+
+        <label>
+
+            Foto Bukti
+
+        </label>
+
+        <br><br>
+
+        <img
+        src="https://placehold.co/700x350/E2E8F0/64748B?text=Foto+Bukti+Laporan"
+        class="proof-image"
+        alt="Foto Bukti">
+
+        <br><br>
+
+        <label>
+
+            Catatan Admin
+
+        </label>
+
+        <textarea
+            rows="4"
+            placeholder="Tambahkan catatan untuk pelapor...">
+
+Laporan telah diverifikasi dan akan diteruskan kepada teknisi sarana dan prasarana untuk dilakukan pemeriksaan.
+
+        </textarea>
+
+        <br><br>
+
+        <label>
+
+            Perbarui Status Laporan
+
+        </label>
+
+        <select>
+
+            <option>
+
+                Dilaporkan
+
+            </option>
+
+            <option selected>
+
+                Diproses
+
+            </option>
+
+            <option>
+
+                Selesai
+
+            </option>
+
+        </select>
+
+        <br><br>
+
+        <div class="profile-action">
+
+            <button class="btn">
+
+                Simpan Perubahan
+
+            </button>
+
+            <button
+                class="btn-secondary"
+                onclick="closeModal()">
+
+                Tutup
+
+            </button>
+
+        </div>
+
+    </div>
 
 </div>
 
@@ -232,27 +950,37 @@ Tutup
 
 function openModal(){
 
-document
-.getElementById(
-"adminModal"
-)
-.style.display =
-"flex";
+    document
+    .getElementById("adminModal")
+    .style.display = "flex";
 
 }
 
 function closeModal(){
 
-document
-.getElementById(
-"adminModal"
-)
-.style.display =
-"none";
+    document
+    .getElementById("adminModal")
+    .style.display = "none";
+
+}
+
+// Menutup modal ketika area luar modal diklik
+
+window.onclick = function(event){
+
+    const modal =
+    document.getElementById("adminModal");
+
+    if(event.target == modal){
+
+        modal.style.display = "none";
+
+    }
 
 }
 
 </script>
 
 </body>
+
 </html>
