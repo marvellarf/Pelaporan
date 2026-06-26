@@ -8,7 +8,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Buat Laporan</title>
+    <title>Buat Laporan | Suara Kampus</title>
 
     <link rel="stylesheet"
           href="style.css">
@@ -17,15 +17,65 @@
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
+<header class="top-header">
+
+    <div class="header-left">
+
+        <img src="Logo.png"
+             class="header-logo"
+             alt="Logo">
+
+        <div class="header-title">
+
+            <h2>Suara Kampus</h2>
+
+            <p>Sistem Pelaporan Kerusakan Fasilitas Kampus</p>
+
+        </div>
+
+    </div>
+
+    <div class="header-right">
+
+        <div class="notification">
+
+            🔔
+
+        </div>
+
+        <div class="user-box">
+
+            <div class="user-photo">
+
+                M
+
+            </div>
+
+            <div class="user-detail">
+
+                <h4>Marvella</h4>
+
+                <span>Mahasiswa</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
 <div class="dashboard">
+
+    <!-- SIDEBAR -->
 
     <aside class="sidebar">
 
         <div class="logo-sidebar">
 
-            <h2>
-                Facility Report
-            </h2>
+            <h2>Menu</h2>
 
         </div>
 
@@ -66,29 +116,39 @@
 
     </aside>
 
+    <!-- MAIN -->
+
     <main class="main-content">
 
-        <div class="header">
+        <section class="welcome-card form-banner">
 
-            <h1>
-                Form Pelaporan Kerusakan
-            </h1>
+            <div class="welcome-text">
 
-            <p>
-                Lengkapi data kerusakan fasilitas kampus
-            </p>
+                <h1>
 
-        </div>
+                    Form Pelaporan Kerusakan
 
-        <div class="card">
+                </h1>
+
+                <p>
+
+                    Lengkapi seluruh informasi mengenai kerusakan fasilitas kampus.
+                    Pastikan lokasi dan deskripsi sudah sesuai agar laporan dapat
+                    diproses dengan cepat.
+
+                </p>
+
+            </div>
+
+        </section>
+
+        <section class="card">
 
             <form class="form-grid">
 
                 <div>
 
-                    <label>
-                        Kategori Kerusakan
-                    </label>
+                    <label>Kategori Kerusakan</label>
 
                     <select>
 
@@ -104,9 +164,7 @@
 
                 <div>
 
-                    <label>
-                        Tingkat Urgensi
-                    </label>
+                    <label>Tingkat Urgensi</label>
 
                     <select>
 
@@ -120,46 +178,36 @@
 
                 <div class="full">
 
-                    <label>
-                        Lokasi Kerusakan
-                    </label>
+                    <label>Lokasi Kerusakan</label>
 
-                    <input
-                        type="text"
-                        placeholder="Contoh: Gedung A Lt.2 Ruang 204">
+                    <input type="text"
+                           placeholder="Contoh: Gedung A Lt.2 Ruang 204">
 
                 </div>
 
                 <div class="full">
 
-                    <label>
-                        Kronologi Kerusakan
-                    </label>
+                    <label>Kronologi Kerusakan</label>
 
-                    <textarea
-                        rows="6"
-                        placeholder="Jelaskan kronologi kerusakan secara detail"></textarea>
+                    <textarea rows="7"
+                              placeholder="Jelaskan kronologi kerusakan secara detail"></textarea>
 
                 </div>
 
                 <div class="full">
 
-                    <label>
-                        Upload Foto Bukti
-                    </label>
+                    <label>Upload Foto Bukti</label>
 
-                    <input
-                        type="file"
-                        id="foto"
-                        accept="image/*">
+                    <input type="file"
+                           id="foto"
+                           accept="image/*">
 
-                    <img
-                        id="preview"
-                        class="preview-image">
+                    <img id="preview"
+                         class="preview-image">
 
                 </div>
 
-                <div class="full">
+                <div class="full form-button">
 
                     <button
                         type="submit"
@@ -173,7 +221,23 @@
 
             </form>
 
-        </div>
+        </section>
+
+        <footer class="footer">
+
+            <p>
+
+                © 2026 <strong>Suara Kampus</strong>
+
+            </p>
+
+            <span>
+
+                Sistem Pelaporan Kerusakan Fasilitas Kampus Universitas Lampung
+
+            </span>
+
+        </footer>
 
     </main>
 
@@ -181,31 +245,23 @@
 
 <script>
 
-const foto =
-document.getElementById("foto");
+const foto = document.getElementById("foto");
 
-const preview =
-document.getElementById("preview");
+const preview = document.getElementById("preview");
 
-foto.addEventListener(
-"change",
-function(){
+foto.addEventListener("change", function(){
 
-const file =
-this.files[0];
+const file=this.files[0];
 
 if(file){
 
-preview.src =
-URL.createObjectURL(file);
+preview.src=URL.createObjectURL(file);
 
-preview.style.display =
-"block";
+preview.style.display="block";
 
 }
 
-}
-);
+});
 
 </script>
 
