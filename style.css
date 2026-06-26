@@ -572,184 +572,6 @@ td{
 
 }
 
-/* ==========================
-   PROFILE PAGE
-========================== */
-
-.profile-top{
-
-    display:flex;
-    align-items:center;
-    gap:25px;
-
-}
-
-.profile-avatar img{
-
-    width:110px;
-    height:110px;
-
-    border-radius:50%;
-
-    object-fit:cover;
-
-    border:4px solid #E2E8F0;
-
-}
-
-.profile-info h2{
-
-    margin-bottom:8px;
-
-    color:#0F172A;
-
-}
-
-.profile-info p{
-
-    color:#64748B;
-
-    margin-bottom:10px;
-
-}
-
-.status-active{
-
-    background:#DCFCE7;
-
-    color:#166534;
-
-    padding:8px 14px;
-
-    border-radius:20px;
-
-    font-size:14px;
-
-    font-weight:600;
-
-}
-
-.profile-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(2,1fr);
-
-    gap:20px;
-
-    margin-top:20px;
-
-}
-
-.profile-box{
-
-    background:#F8FAFC;
-
-    border:1px solid #E2E8F0;
-
-    border-radius:12px;
-
-    padding:18px;
-
-}
-
-.profile-box label{
-
-    display:block;
-
-    color:#64748B;
-
-    font-size:13px;
-
-    margin-bottom:8px;
-
-}
-
-.profile-box h4{
-
-    color:#0F172A;
-
-    font-weight:600;
-
-}
-
-.profile-action{
-
-    margin-top:25px;
-
-    display:flex;
-
-    gap:15px;
-
-}
-
-.btn-secondary{
-
-    background:#E2E8F0;
-
-    color:#0F172A;
-
-    border:none;
-
-    padding:12px 22px;
-
-    border-radius:10px;
-
-    cursor:pointer;
-
-    font-weight:600;
-
-}
-
-.btn-secondary:hover{
-
-    background:#CBD5E1;
-
-}
-
-/* ==========================
-   REGISTER PAGE
-========================== */
-
-.register-card{
-
-    max-width:900px;
-}
-
-.register-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(2,1fr);
-
-    gap:18px;
-}
-
-.full-width{
-
-    grid-column:1/3;
-}
-
-.register-grid textarea{
-
-    resize:none;
-}
-
-@media(max-width:768px){
-
-.register-grid{
-
-    grid-template-columns:1fr;
-}
-
-.full-width{
-
-    grid-column:auto;
-}
-
-}
 
 /* ==========================
    ADMIN DASHBOARD
@@ -836,5 +658,1092 @@ td{
 
         grid-template-columns:1fr;
     }
+
+}
+
+/* ==========================
+   DASHBOARD PELAPOR
+========================== */
+
+/* HEADER */
+
+.top-header{
+
+    height:80px;
+
+    background:#FFFFFF;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 35px;
+
+    border-bottom:1px solid #E2E8F0;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+}
+
+.header-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.header-logo{
+
+    width:55px;
+
+    height:55px;
+
+    object-fit:contain;
+
+}
+
+.header-title h2{
+
+    color:#1E40AF;
+
+    font-size:22px;
+
+    margin-bottom:3px;
+
+}
+
+.header-title p{
+
+    color:#64748B;
+
+    font-size:14px;
+
+}
+
+.header-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+}
+
+.notification{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    background:#EFF6FF;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.notification:hover{
+
+    background:#DBEAFE;
+
+}
+
+.user-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.user-photo{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    background:#1E40AF;
+
+    color:#FFFFFF;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-weight:700;
+
+}
+
+.user-detail h4{
+
+    color:#0F172A;
+
+}
+
+.user-detail span{
+
+    color:#64748B;
+
+    font-size:13px;
+
+}
+
+/* SIDEBAR */
+
+.sidebar{
+
+    top:80px;
+
+    height:calc(100vh - 80px);
+
+}
+
+/* MAIN */
+
+.main-content{
+
+    margin-left:260px;
+
+    padding:35px;
+
+}
+
+/* WELCOME */
+
+.welcome-card{
+
+    background:linear-gradient(135deg,#1E40AF,#3B82F6);
+
+    color:#FFFFFF;
+
+    border-radius:18px;
+
+    padding:15px;
+
+    margin-bottom:25px;
+
+}
+
+.welcome-text h1{
+
+    margin-bottom:15px;
+
+}
+
+.welcome-text p{
+
+    line-height:1.8;
+
+    color:#E2E8F0;
+
+}
+
+/* CARD */
+
+.card{
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+/* TABLE */
+
+.table-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.table-header p{
+
+    color:#64748B;
+
+    margin-top:5px;
+
+}
+
+tbody tr:hover{
+
+    background:#F8FAFC;
+
+}
+
+/* QUICK ACTION */
+
+.quick-action{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+    margin-top:25px;
+
+}
+
+.action-card{
+
+    background:#FFFFFF;
+
+    border:1px solid #E2E8F0;
+
+    border-radius:16px;
+
+    padding:25px;
+
+    transition:.3s;
+
+    color:#0F172A;
+
+}
+
+.action-card:hover{
+
+    border-color:#3B82F6;
+
+    transform:translateY(-4px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.action-card h3{
+
+    color:#1E40AF;
+
+    margin-bottom:10px;
+
+}
+
+.action-card p{
+
+    color:#64748B;
+
+    line-height:1.6;
+
+}
+
+/* FOOTER */
+
+.footer{
+
+    margin-top:40px;
+
+    padding:25px 0;
+
+    text-align:center;
+
+    border-top:1px solid #E2E8F0;
+
+}
+
+.footer p{
+
+    margin-bottom:8px;
+
+    color:#0F172A;
+
+}
+
+.footer span{
+
+    color:#64748B;
+
+    font-size:14px;
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .top-header{
+
+        flex-direction:column;
+
+        height:auto;
+
+        padding:20px;
+
+        gap:20px;
+
+    }
+
+    .sidebar{
+
+        position:relative;
+
+        width:100%;
+
+        top:0;
+
+        height:auto;
+
+    }
+
+    .main-content{
+
+        margin-left:0;
+
+    }
+
+    .quick-action{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+/* ==========================
+   LOGIN PAGE UPDATE
+========================== */
+
+.auth-container{
+
+    background:linear-gradient(135deg,#1E40AF,#3B82F6);
+
+    min-height:100vh;
+
+}
+
+.auth-card{
+
+    max-width:470px;
+
+    border-radius:22px;
+
+    padding:40px;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.18);
+
+}
+
+.login-logo{
+
+    width:90px;
+
+    margin-bottom:20px;
+
+}
+
+.auth-logo h1{
+
+    color:#1E40AF;
+
+    margin-bottom:8px;
+
+}
+
+.auth-logo p{
+
+    color:#64748B;
+
+    line-height:1.6;
+
+}
+
+.form-control{
+
+    padding:14px;
+
+    border-radius:12px;
+
+}
+
+.form-control:focus{
+
+    box-shadow:0 0 0 4px rgba(59,130,246,.15);
+
+}
+
+.login-info{
+
+    margin-top:30px;
+
+    background:#EFF6FF;
+
+    border:1px solid #DBEAFE;
+
+    border-radius:15px;
+
+    padding:20px;
+
+}
+
+.login-info h4{
+
+    color:#1E40AF;
+
+    margin-bottom:15px;
+
+}
+
+.login-info p{
+
+    color:#475569;
+
+    margin-bottom:12px;
+
+    line-height:1.6;
+
+}
+
+.login-footer{
+
+    margin-top:25px;
+
+    text-align:center;
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+}
+
+/* ==========================
+   REGISTER PAGE UPDATE
+========================== */
+
+.register-card{
+
+    max-width:900px;
+
+}
+
+.register-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+.full-width{
+
+    grid-column:1/3;
+
+}
+
+.register-grid textarea{
+
+    resize:none;
+
+    min-height:120px;
+
+}
+
+.register-grid .btn{
+
+    width:100%;
+
+}
+
+@media(max-width:768px){
+
+    .register-card{
+
+        max-width:500px;
+
+    }
+
+    .register-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .full-width{
+
+        grid-column:auto;
+
+    }
+
+}
+
+/* ==========================
+   PROFILE PAGE UPDATE
+========================== */
+
+.profile-top{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:30px;
+
+}
+
+.profile-avatar img{
+
+    width:130px;
+
+    height:130px;
+
+    border-radius:50%;
+
+    border:5px solid #E2E8F0;
+
+    object-fit:cover;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.profile-info h2{
+
+    font-size:28px;
+
+    margin-bottom:8px;
+
+}
+
+.profile-info p{
+
+    color:#64748B;
+
+    margin-bottom:15px;
+
+}
+
+.status-active{
+
+    display:inline-block;
+
+    background:#DCFCE7;
+
+    color:#166534;
+
+    padding:8px 18px;
+
+    border-radius:25px;
+
+    font-weight:600;
+
+}
+
+.profile-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+    margin-top:20px;
+
+}
+
+.profile-box{
+
+    background:#F8FAFC;
+
+    border:1px solid #E2E8F0;
+
+    border-radius:14px;
+
+    padding:20px;
+
+    transition:.3s;
+
+}
+
+.profile-box:hover{
+
+    border-color:#3B82F6;
+
+    transform:translateY(-3px);
+
+}
+
+.profile-box label{
+
+    color:#64748B;
+
+    font-size:13px;
+
+    margin-bottom:8px;
+
+    display:block;
+
+}
+
+.profile-box h4{
+
+    color:#0F172A;
+
+    font-size:16px;
+
+}
+
+.profile-action{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:15px;
+
+    margin-top:30px;
+
+}
+
+.profile-action .btn{
+
+    width:180px;
+
+}
+
+.profile-action .btn-secondary{
+
+    width:180px;
+
+}
+
+@media(max-width:768px){
+
+    .profile-top{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .profile-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .profile-action{
+
+        flex-direction:column;
+
+    }
+
+    .profile-action .btn,
+
+    .profile-action .btn-secondary{
+
+        width:100%;
+
+    }
+
+}
+
+/* ==========================
+   FORM LAPORAN
+========================== */
+
+.form-banner{
+
+    margin-bottom:25px;
+
+}
+
+.form-grid label{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    font-weight:600;
+
+    color:#334155;
+
+}
+
+.form-grid input,
+.form-grid select,
+.form-grid textarea{
+
+    background:#FFFFFF;
+
+    border:1px solid #CBD5E1;
+
+    border-radius:12px;
+
+    padding:14px 16px;
+
+    transition:.3s;
+
+    font-size:15px;
+
+}
+
+.form-grid input:focus,
+.form-grid select:focus,
+.form-grid textarea:focus{
+
+    border-color:#3B82F6;
+
+    box-shadow:0 0 0 4px rgba(59,130,246,.15);
+
+}
+
+.form-grid textarea{
+
+    resize:vertical;
+
+    min-height:180px;
+
+}
+
+input[type=file]{
+
+    background:#F8FAFC;
+
+    border:2px dashed #CBD5E1;
+
+    padding:18px;
+
+    cursor:pointer;
+
+}
+
+input[type=file]:hover{
+
+    border-color:#3B82F6;
+
+    background:#EFF6FF;
+
+}
+
+.preview-image{
+
+    display:none;
+
+    width:320px;
+
+    margin-top:20px;
+
+    border-radius:15px;
+
+    border:1px solid #E2E8F0;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+}
+
+.form-button{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+}
+
+.form-button .btn{
+
+    width:240px;
+
+}
+
+/* ==========================
+   RIWAYAT LAPORAN
+========================== */
+
+.btn-detail{
+
+    background:#DBEAFE;
+
+    color:#1E40AF;
+
+    border:none;
+
+    padding:9px 18px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.btn-detail:hover{
+
+    background:#3B82F6;
+
+    color:#FFFFFF;
+
+}
+
+.modal-content{
+
+    width:650px;
+
+    background:#FFFFFF;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    animation:popup .25s ease;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+}
+
+.modal-content hr{
+
+    border:none;
+
+    border-top:1px solid #E2E8F0;
+
+    margin:18px 0;
+
+}
+
+.modal-content p{
+
+    color:#475569;
+
+    line-height:1.8;
+
+}
+
+@keyframes popup{
+
+    from{
+
+        transform:translateY(20px);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:translateY(0);
+
+        opacity:1;
+
+    }
+
+}
+
+/* ==========================
+   QUICK MENU ADMIN
+========================== */
+
+.quick-menu{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+    margin-bottom:25px;
+
+}
+
+.quick-card{
+
+    display:block;
+
+    background:#FFFFFF;
+
+    border:1px solid #E2E8F0;
+
+    border-radius:16px;
+
+    padding:24px;
+
+    color:#0F172A;
+
+    transition:all .3s ease;
+
+    box-shadow:0 2px 10px rgba(0,0,0,.05);
+
+}
+
+.quick-card:hover{
+
+    border-color:#3B82F6;
+
+    transform:translateY(-4px);
+
+    box-shadow:0 8px 20px rgba(59,130,246,.15);
+
+}
+
+.quick-card h3{
+
+    color:#1E40AF;
+
+    font-size:18px;
+
+    margin-bottom:10px;
+
+}
+
+.quick-card p{
+
+    color:#64748B;
+
+    line-height:1.6;
+
+    font-size:14px;
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .quick-menu{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+/* ==========================
+   ADMIN DETAIL BUTTON
+========================== */
+
+.btn-detail{
+
+    background:var(--primary);
+
+    color:#FFFFFF;
+
+    border:none;
+
+    border-radius:8px;
+
+    padding:8px 16px;
+
+    cursor:pointer;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.btn-detail:hover{
+
+    background:#1D4ED8;
+
+}
+
+/* ==========================
+   MODAL DETAIL ADMIN
+========================== */
+
+.modal-content{
+
+    width:650px;
+
+    max-width:50%;
+
+    max-height:70vh;
+
+    overflow-y:auto;
+
+    background:#FFFFFF;
+
+    border-radius:16px;
+
+    padding:30px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+}
+
+.modal-content::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.modal-content::-webkit-scrollbar-thumb{
+
+    background:#CBD5E1;
+
+    border-radius:20px;
+
+}
+
+
+/* ==========================
+   READONLY TEXTAREA
+========================== */
+
+textarea[readonly]{
+
+    background:#F8FAFC;
+
+    color:#475569;
+
+    cursor:default;
+
+}
+
+.proof-image{
+
+    width:70%;
+
+    display:block;
+
+    margin:auto;
+
+    border-radius:12px;
+
+    border:1px solid #E2E8F0;
 
 }
