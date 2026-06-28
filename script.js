@@ -564,4 +564,62 @@ document.addEventListener("DOMContentLoaded", () => {
 
         muatDasborPelapor();
     }
+    // ==========================================
+    // LOGIKA US-01: FORM REGISTRASI MAHASISWA
+    // ==========================================
+    const formRegister = document.getElementById('formRegister');
+
+    if (formRegister) {
+        formRegister.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const pass1 = document.getElementById('reg-password').value;
+            const pass2 = document.getElementById('reg-confirm').value;
+
+            // SATPAM TYPO: Cek apakah password & konfirmasi cocok!
+            if (pass1 !== pass2) {
+                alert("🔴 Konfirmasi password tidak cocok dengan password awal!");
+                document.getElementById('reg-confirm').focus();
+                return;
+            }
+
+            const payloadData = {
+                nama: document.getElementById('reg-nama').value.trim(),
+                nim: document.getElementById('reg-nim').value.trim(),
+                prodi: document.getElementById('reg-prodi').value.trim(),
+                fakultas: document.getElementById('reg-fakultas').value.trim(),
+                email: document.getElementById('reg-email').value.trim(),
+                no_telp: document.getElementById('reg-telp').value.trim(),
+                alamat: document.getElementById('reg-alamat').value.trim(),
+                password: pass1
+            };
+
+            const btnSub = document.getElementById('btn-reg-submit');
+            btnSub.disabled = true;
+            btnSub.innerText = "Mendaftarkan ke Pusat Data...";
+
+            try {
+                const response = await fetch('/api/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payloadData)
+                });
+
+                const hasil = await response.json();
+
+                if (response.ok && hasil.success) {
+                    alert(hasil.message);
+                    window.location.href = 'index.html'; // Lompat ke form Login!
+                } else {
+                    alert(hasil.message || "Gagal mendaftar.");
+                    btnSub.disabled = false;
+                    btnSub.innerText = "Daftar";
+                }
+            } catch (err) {
+                alert("Gagal menghubungi server Kampus!");
+                btnSub.disabled = false;
+                btnSub.innerText = "Daftar";
+            }
+        });
+    }
 });

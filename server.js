@@ -11,6 +11,30 @@ app.use(express.static(path.join(__dirname, '/')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// [API US-01] Registrasi Mahasiswa Lengkap
+app.post('/api/register', (req, res) => {
+    const { nama, nim, prodi, fakultas, email, no_telp, alamat, password } = req.body;
+
+    if (!nama || !nim || !email || !password) {
+        return res.status(400).json({ success: false, message: "Data wajib (Nama, NIM, Email, Password) tidak boleh kosong!" });
+    }
+
+    const rolePermanen = "mahasiswa"; // Kunci mati keamanan!
+
+    const sql = `INSERT INTO users (nama, nim, prodi, fakultas, email, no_telp, alamat, password, role) 
+                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+                 
+    db.run(sql, [nama, nim, prodi, fakultas, email, no_telp, alamat, password, rolePermanen], function(err) {
+        if (err) {
+            if (err.message.includes("UNIQUE constraint failed")) {
+                return res.status(409).json({ success: false, message: "Email ini sudah terdaftar di sistem!" });
+            }
+            return res.status(500).json({ success: false, message: err.message });
+        }
+        res.status(201).json({ success: true, message: "Registrasi berhasil! Silakan login." });
+    });
+});
+
 // Endpoint API untuk memproses Login
 app.post('/api/login', (req, res) => {
     const { email, password } = req.body;
