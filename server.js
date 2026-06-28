@@ -112,6 +112,72 @@ app.get('/api/laporan/user/:user_id', (req, res) => {
     });
 });
 
+// [API US-04A] Tarik SEMUA laporan + NAMA ASLI PELAPOR (Upgrade LEFT JOIN!)
+app.get('/api/admin/laporan', (req, res) => {
+    const sql = `SELECT laporan.*, users.nama AS nama_pelapor 
+                 FROM laporan 
+                 LEFT JOIN users ON laporan.user_id = users.id 
+                 ORDER BY laporan.id DESC`;
+                 
+    db.all(sql, [], (err, rows) => {
+        if (err) return res.status(500).json({ success: false, error: err.message });
+        res.json({ success: true, data: rows });
+    });
+});
+
+// [API US-04B] Update Status Laporan (Dilaporkan -> Diproses -> Selesai)
+app.patch('/api/admin/laporan/:id/status', (req, res) => {
+    const laporanId = req.params.id;
+    const { status_baru } = req.body;
+
+    const sql = "UPDATE laporan SET status = ? WHERE id = ?";
+    db.run(sql, [status_baru, laporanId], function(err) {
+        if (err) return res.status(500).json({ success: false, error: err.message });
+        
+        res.json({ 
+            success: true, 
+            message: `Status laporan LP-2026-${String(laporanId).padStart(3, '0')} berhasil diubah menjadi: ${status_baru}` 
+        });
+    });
+});
+
+// [API US-05] Mesin Pencari & Filter Laporan Dinamis (SQL Query Builder)
+app.get('/api/laporan/filter', (req, res) => {
+    const { keyword, kategori, urgensi } = req.query;
+
+    let sql = `SELECT laporan.*, users.nama AS nama_pelapor 
+               FROM laporan 
+               LEFT JOIN users ON laporan.user_id = users.id 
+               WHERE 1=1`;
+    let params = [];
+
+    // Jika admin mengetik kata kunci lokasi atau ID
+    if (keyword && keyword.trim() !== '') {
+        sql += ` AND (laporan.lokasi LIKE ? OR laporan.kronologi LIKE ? OR laporan.id LIKE ?)`;
+        const wild = `%${keyword.trim()}%`;
+        params.push(wild, wild, wild);
+    }
+
+    // Jika admin memilih dropdown kategori
+    if (kategori && kategori.trim() !== '') {
+        sql += ` AND laporan.kategori = ?`;
+        params.push(kategori.trim());
+    }
+
+    // Jika admin memilih dropdown urgensi
+    if (urgensi && urgensi.trim() !== '') {
+        sql += ` AND laporan.urgensi = ?`;
+        params.push(urgensi.trim());
+    }
+
+    sql += ` ORDER BY laporan.id DESC`;
+
+    db.all(sql, params, (err, rows) => {
+        if (err) return res.status(500).json({ success: false, error: err.message });
+        res.json({ success: true, data: rows });
+    });
+});
+
 app.listen(PORT, () => {
     console.log(`Server CampusFix berjalan di http://localhost:${PORT}`);
 });

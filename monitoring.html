@@ -1,280 +1,117 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>Monitoring Laporan | Suara Kampus</title>
-
-    <link rel="stylesheet"
-          href="style.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring Fasilitas | Suara Kampus Admin</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- ================= HEADER ================= -->
-
 <header class="top-header">
-
     <div class="header-left">
-
-        <img src="Logo.png"
-             alt="Logo Suara Kampus"
-             class="header-logo">
-
+        <img src="Logo.png" alt="Logo" class="header-logo">
         <div class="header-title">
-
-            <h2>Suara Kampus</h2>
-
-            <p>Sistem Pelaporan Kerusakan Fasilitas Kampus</p>
-
+            <h2>Suara Kampus (Pusat Monitoring)</h2>
+            <p>Radar Pengawasan Sarana Prasarana Kampus</p>
         </div>
-
     </div>
-
     <div class="header-right">
-
         <div class="user-box">
-
-            <div class="user-photo">
-
-                A
-
-            </div>
-
+            <div class="user-photo" style="background: #dc3545;">A</div>
             <div class="user-detail">
-
-                <h4>Administrator</h4>
-
-                <span>Admin</span>
-
+                <h4 id="header-user-name">Loading...</h4>
+                <span style="color: #dc3545; font-weight:bold;">Admin</span>
             </div>
-
         </div>
-
     </div>
-
 </header>
 
 <div class="dashboard">
-
-    <!-- SIDEBAR -->
-
     <aside class="sidebar">
-
         <div class="logo-sidebar">
-
             <h2>Menu Admin</h2>
-
         </div>
-
         <div class="sidebar-menu">
-
-            <a href="dashboard-admin.html">
-
-                Dashboard
-
-            </a>
-
-            <a href="kelola-laporan.html">
-
-                Kelola Laporan
-
-            </a>
-
-            <a href="monitoring.html"
-               class="active">
-
-                Monitoring
-
-            </a>
-
-            <a href="index.html">
-
-                Logout
-
-            </a>
-
+            <a href="dashboard-admin.html">Dashboard</a>
+            <a href="kelola-laporan.html">Kelola Laporan</a>
+            <a href="monitoring.html" class="active">Monitoring</a>
+            <a href="index.html" id="logout-btn">Logout</a>
         </div>
-
     </aside>
 
-    <!-- MAIN -->
-
     <main class="main-content">
-
-        <!-- WELCOME -->
-
-        <section class="welcome-card">
-
+        <section class="welcome-card" style="border-left: 5px solid #17a2b8;">
             <div class="welcome-text">
-
-                <h1>
-
-                    Monitoring Laporan
-
-                </h1>
-
-                <p>
-
-                    Pantau seluruh laporan dengan tingkat urgensi tinggi
-                    untuk memastikan proses penanganan berjalan tepat waktu.
-
-                </p>
-
+                <h1>Radar Monitoring & Filter</h1>
+                <p>Cari laporan secara spesifik berdasarkan ID, lokasi gedung, atau saring berdasarkan kategori kerusakan fasilitas.</p>
             </div>
-
         </section>
-
-        <!-- TABEL -->
 
         <section class="card">
-
-            <div class="table-header">
-
-                <div>
-
-                    <h2>
-
-                        Daftar Prioritas
-
-                    </h2>
-
-                    <p>
-
-                        Laporan yang membutuhkan perhatian segera.
-
-                    </p>
-
-                </div>
-
+            <div class="filter-grid" style="display: grid; grid-template-columns: 2fr 1fr 1fr auto; gap: 10px;">
+                <input type="text" id="search-keyword" placeholder="Ketik lokasi (misal: Gedung A) atau ID...">
+                <select id="search-kategori">
+                    <option value="">Semua Kategori</option>
+                    <option value="AC">AC</option>
+                    <option value="Listrik">Listrik</option>
+                    <option value="Furniture">Furniture</option>
+                    <option value="Internet">Internet</option>
+                    <option value="Bangunan">Bangunan</option>
+                </select>
+                <select id="search-urgensi">
+                    <option value="">Semua Urgensi</option>
+                    <option value="Tinggi">Darurat (Tinggi)</option>
+                    <option value="Sedang">Sedang</option>
+                    <option value="Rendah">Rendah</option>
+                </select>
+                <button class="btn" style="background:#17a2b8;" onclick="jalankanFilter()">🔍 Filter Data</button>
             </div>
-
-            <div class="table-container">
-
-                <table>
-
-                    <thead>
-
-                        <tr>
-
-                            <th>ID</th>
-
-                            <th>Kategori</th>
-
-                            <th>Lokasi</th>
-
-                            <th>Urgensi</th>
-
-                            <th>Status</th>
-
-                        </tr>
-
-                    </thead>
-
-                    <tbody>
-
-                        <tr>
-
-                            <td>LP-2026-001</td>
-
-                            <td>AC</td>
-
-                            <td>Gedung A Lt.2</td>
-
-                            <td>Tinggi</td>
-
-                            <td>
-
-                                <span class="badge badge-warning">
-
-                                    Diproses
-
-                                </span>
-
-                            </td>
-
-                        </tr>
-
-                        <tr>
-
-                            <td>LP-2026-007</td>
-
-                            <td>Listrik</td>
-
-                            <td>Laboratorium Komputer</td>
-
-                            <td>Tinggi</td>
-
-                            <td>
-
-                                <span class="badge badge-danger">
-
-                                    Dilaporkan
-
-                                </span>
-
-                            </td>
-
-                        </tr>
-
-                        <tr>
-
-                            <td>LP-2026-011</td>
-
-                            <td>Bangunan</td>
-
-                            <td>Gedung B Lt.3</td>
-
-                            <td>Tinggi</td>
-
-                            <td>
-
-                                <span class="badge badge-warning">
-
-                                    Diproses
-
-                                </span>
-
-                            </td>
-
-                        </tr>
-
-                    </tbody>
-
-                </table>
-
-            </div>
-
         </section>
 
-        <!-- FOOTER -->
-
-        <footer class="footer">
-
-            <p>
-
-                © 2026 <strong>Suara Kampus</strong>
-
-            </p>
-
-            <span>
-
-                Sistem Pelaporan Kerusakan Fasilitas Kampus Universitas Lampung
-
-            </span>
-
-        </footer>
-
+        <section class="card">
+            <div class="table-header">
+                <h2>Hasil Pemindaian Fasilitas</h2>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Pelapor</th>
+                            <th>Kategori</th>
+                            <th>Lokasi Fisik</th>
+                            <th>Tingkat Urgensi</th>
+                            <th>Status Penanganan</th>
+                            <th>Inspeksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="monitoring-tbody">
+                        <tr><td colspan="7" style="text-align:center;">Menunggu instruksi pemindaian...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
     </main>
-
 </div>
 
-</body>
+<div id="detailModal" class="modal">
+    <div class="modal-content">
+        <h2>Inspeksi Monitoring</h2>
+        <hr><br>
+        <p><b>ID :</b> <span id="modal-id">-</span></p>
+        <p><b>Lokasi :</b> <span id="modal-lokasi">-</span></p>
+        <p><b>Kronologi :</b></p>
+        <p id="modal-kronologi" style="background: #f8f9fa; padding: 10px; border-radius: 4px;">-</p>
+        <br>
+        <div id="modal-foto-container" style="display:none; margin-bottom: 15px;">
+            <p><b>Foto Bukti Kerusakan:</b></p>
+            <img id="modal-foto" src="" style="max-width: 100%; border-radius: 5px; border: 1px solid #ddd;">
+        </div>
+        <button class="btn" id="btn-close-modal">Tutup Inspeksi</button>
+    </div>
+</div>
 
+<script src="script.js"></script>
+</body>
 </html>
