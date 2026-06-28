@@ -150,7 +150,7 @@
 
                     <label>Kategori Kerusakan</label>
 
-                    <select>
+                    <select id="kategori">
 
                         <option>AC</option>
                         <option>Listrik</option>
@@ -166,7 +166,7 @@
 
                     <label>Tingkat Urgensi</label>
 
-                    <select>
+                    <select id="urgensi">
 
                         <option>Rendah</option>
                         <option>Sedang</option>
@@ -181,6 +181,7 @@
                     <label>Lokasi Kerusakan</label>
 
                     <input type="text"
+                           id="lokasi"
                            placeholder="Contoh: Gedung A Lt.2 Ruang 204">
 
                 </div>
@@ -189,7 +190,8 @@
 
                     <label>Kronologi Kerusakan</label>
 
-                    <textarea rows="7"
+                    <textarea id="kronologi"
+                              rows="7"
                               placeholder="Jelaskan kronologi kerusakan secara detail"></textarea>
 
                 </div>
@@ -243,7 +245,7 @@
 
 </div>
 
-<script>
+<script src="script.js">
 
 const foto = document.getElementById("foto");
 

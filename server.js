@@ -44,6 +44,62 @@ app.post('/api/login', (req, res) => {
     });
 });
 
+
+const multer = require('multer');
+
+// 1. Konfigurasi tempat penampungan foto Multer
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './uploads/');
+    },
+    filename: function (req, file, cb) {
+        // Jurus anti-bentrok: namain file pakai "waktu_sekarang + angka_random"
+        // Biar kalo ada 2 orang upload file bernama 'foto.jpg' barengan, gak saling timpa
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+        cb(null, 'bukti-' + uniqueSuffix + path.extname(file.originalname));
+    }
+});
+
+const upload = multer({ 
+    storage: storage,
+    limits: { fileSize: 5 * 1024 * 1024 } // Kontrak hukum: Maksimal 5 MB!
+});
+
+// 2. Endpoint API Kirim Laporan Kerusakan
+app.post('/api/laporan', upload.single('foto_bukti'), (req, res) => {
+    const { kategori, lokasi, kronologi, urgensi, user_id } = req.body;
+    
+    // Ambil path fotonya jika pelapor mengunggah gambar
+    const foto_path = req.file ? `uploads/${req.file.filename}` : null;
+
+    // Validasi backend: semua kolom wajib terisi
+    if (!kategori || !lokasi || !kronologi || !urgensi || !user_id) {
+        return res.status(400).json({ 
+            success: false, 
+            message: "Semua data kerusakan wajib diisi lengkap!" 
+        });
+    }
+
+    const sql = `INSERT INTO laporan (kategori, lokasi, kronologi, urgensi, foto_bukti, user_id) 
+                 VALUES (?, ?, ?, ?, ?, ?)`;
+
+    db.run(sql, [kategori, lokasi, kronologi, urgensi, foto_path, user_id], function(err) {
+        if (err) {
+            console.error("Database Error:", err.message);
+            return res.status(500).json({ success: false, message: "Gagal menyimpan laporan ke database." });
+        }
+        
+        res.json({
+            success: true,
+            message: "Laporan kerusakan berhasil dikirim!",
+            laporan_id: this.lastID
+        });
+    });
+});
+
+
+
+
 app.listen(PORT, () => {
     console.log(`Server CampusFix berjalan di http://localhost:${PORT}`);
 });
