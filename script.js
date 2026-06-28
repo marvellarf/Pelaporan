@@ -141,7 +141,32 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('header-user-role').innerText = loggedInUser.role;
 
         const tableBody = document.getElementById('laporan-table-body');
+        const filterSearch = document.getElementById('filter-search');
+        const filterStatus = document.getElementById('filter-status');
+        const filterKategori = document.getElementById('filter-kategori');
         let masterDataLaporan = []; // Penampung data mentah buat fitur Search (US-05)
+
+        function applyFilter() {
+            const keyword = (filterSearch?.value || '').trim().toLowerCase();
+            const status = (filterStatus?.value || '').trim().toLowerCase();
+            const kategori = (filterKategori?.value || '').trim().toLowerCase();
+
+            const filtered = masterDataLaporan.filter(item => {
+                const idLabel = `lp-${String(item.id).padStart(3, '0')}`.toLowerCase();
+                const lokasi = (item.lokasi || '').toLowerCase();
+                const kategoriItem = (item.kategori || '').toLowerCase();
+                const statusItem = (item.status || '').toLowerCase();
+                const idValue = String(item.id).toLowerCase();
+
+                const matchesKeyword = !keyword || idLabel.includes(keyword) || idValue.includes(keyword) || lokasi.includes(keyword) || kategoriItem.includes(keyword);
+                const matchesStatus = !status || statusItem === status;
+                const matchesKategori = !kategori || kategoriItem === kategori;
+
+                return matchesKeyword && matchesStatus && matchesKategori;
+            });
+
+            renderTabel(filtered);
+        }
 
         async function muatRiwayat() {
             try {
@@ -216,6 +241,11 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('btn-close-modal')?.addEventListener('click', () => {
             document.getElementById('detailModal').style.display = 'none';
         });
+
+        document.getElementById('btn-filter')?.addEventListener('click', applyFilter);
+        filterSearch?.addEventListener('input', applyFilter);
+        filterStatus?.addEventListener('change', applyFilter);
+        filterKategori?.addEventListener('change', applyFilter);
 
         muatRiwayat(); // Jalankan mesin saat halaman terbuka!
     }
@@ -487,10 +517,25 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         // Fitur Live Search ala Gen Z: pas ngetik langsung nyaring tanpa klik tombol!
-        document.getElementById('search-keyword')?.addEventListener('input', () => {
+        const searchKeywordInput = document.getElementById('search-keyword');
+        const searchKategoriSelect = document.getElementById('search-kategori');
+        const searchUrgensiSelect = document.getElementById('search-urgensi');
+
+        const triggerMonitoringFilter = () => {
             clearTimeout(window.searchTimeout);
-            window.searchTimeout = setTimeout(jalankanFilter, 400); // Debounce 400ms biar gak spam API
+            window.searchTimeout = setTimeout(jalankanFilter, 300);
+        };
+
+        searchKeywordInput?.addEventListener('input', triggerMonitoringFilter);
+        searchKeywordInput?.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                clearTimeout(window.searchTimeout);
+                jalankanFilter();
+            }
         });
+        searchKategoriSelect?.addEventListener('change', triggerMonitoringFilter);
+        searchUrgensiSelect?.addEventListener('change', triggerMonitoringFilter);
 
         jalankanFilter(); // Tarik data awal saat radar dibuka!
     }

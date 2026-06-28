@@ -143,7 +143,9 @@ app.patch('/api/admin/laporan/:id/status', (req, res) => {
 
 // [API US-05] Mesin Pencari & Filter Laporan Dinamis (SQL Query Builder)
 app.get('/api/laporan/filter', (req, res) => {
-    const { keyword, kategori, urgensi } = req.query;
+    const keyword = (req.query.keyword || '').trim();
+    const kategori = (req.query.kategori || '').trim();
+    const urgensi = (req.query.urgensi || '').trim();
 
     let sql = `SELECT laporan.*, users.nama AS nama_pelapor 
                FROM laporan 
@@ -151,23 +153,34 @@ app.get('/api/laporan/filter', (req, res) => {
                WHERE 1=1`;
     let params = [];
 
-    // Jika admin mengetik kata kunci lokasi atau ID
-    if (keyword && keyword.trim() !== '') {
-        sql += ` AND (laporan.lokasi LIKE ? OR laporan.kronologi LIKE ? OR laporan.id LIKE ?)`;
-        const wild = `%${keyword.trim()}%`;
-        params.push(wild, wild, wild);
+    // Jika admin mengetik kata kunci lokasi, kronologi, kategori, atau ID
+    if (keyword !== '') {
+        const idMatch = keyword.match(/(\d+)(?!.*\d)/);
+        const idValue = idMatch ? Number(idMatch[1]) : null;
+        const wild = `%${keyword}%`;
+
+        sql += ` AND (`;
+        sql += `laporan.lokasi LIKE ? OR laporan.kronologi LIKE ? OR laporan.kategori LIKE ? OR users.nama LIKE ? OR CAST(laporan.id AS TEXT) LIKE ?`;
+        params.push(wild, wild, wild, wild, wild);
+
+        if (idValue !== null) {
+            sql += ` OR laporan.id = ?`;
+            params.push(idValue);
+        }
+
+        sql += `)`;
     }
 
     // Jika admin memilih dropdown kategori
-    if (kategori && kategori.trim() !== '') {
+    if (kategori !== '') {
         sql += ` AND laporan.kategori = ?`;
-        params.push(kategori.trim());
+        params.push(kategori);
     }
 
     // Jika admin memilih dropdown urgensi
-    if (urgensi && urgensi.trim() !== '') {
+    if (urgensi !== '') {
         sql += ` AND laporan.urgensi = ?`;
-        params.push(urgensi.trim());
+        params.push(urgensi);
     }
 
     sql += ` ORDER BY laporan.id DESC`;
