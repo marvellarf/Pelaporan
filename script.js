@@ -494,4 +494,74 @@ document.addEventListener("DOMContentLoaded", () => {
 
         jalankanFilter(); // Tarik data awal saat radar dibuka!
     }
+// ==========================================
+    // LOGIKA US-03B: DASHBOARD RINGKASAN PELAPOR
+    // ==========================================
+    if (window.location.pathname.includes('dashboard-pelapor.html')) {
+        const loggedInUser = JSON.parse(localStorage.getItem('user'));
+        
+        if (!loggedInUser) {
+            window.location.href = 'index.html';
+            return;
+        }
+
+        // Render identitas asli di Header & Welcome Banner
+        document.getElementById('header-user-name').innerText = loggedInUser.nama;
+        document.getElementById('header-user-role').innerText = loggedInUser.role;
+        document.getElementById('header-avatar').innerText = loggedInUser.nama.charAt(0).toUpperCase();
+        document.getElementById('welcome-name').innerText = loggedInUser.nama;
+
+        async function muatDasborPelapor() {
+            try {
+                // KITA REUSE API US-03 YANG KEMAREN!
+                const res = await fetch(`/api/laporan/user/${loggedInUser.id}`);
+                const hasil = await res.json();
+
+                if (hasil.success) {
+                    const data = hasil.data;
+
+                    // Hitung Matematika Statistik Pribadi
+                    const total = data.length;
+                    const proses = data.filter(x => x.status === 'Diproses').length;
+                    const selesai = data.filter(x => x.status === 'Selesai').length;
+                    const darurat = data.filter(x => x.urgensi === 'Tinggi').length;
+
+                    document.getElementById('pelapor-stat-total').innerText = total;
+                    document.getElementById('pelapor-stat-proses').innerText = proses;
+                    document.getElementById('pelapor-stat-selesai').innerText = selesai;
+                    document.getElementById('pelapor-stat-darurat').innerText = darurat;
+
+                    // Render 3 Laporan Terakhir
+                    const tbody = document.getElementById('pelapor-tbody-terbaru');
+                    tbody.innerHTML = '';
+                    const tigaTerakhir = data.slice(0, 3);
+
+                    if (tigaTerakhir.length === 0) {
+                        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;">Belum ada aktivitas pelaporan.</td></tr>`;
+                    } else {
+                        tigaTerakhir.forEach(item => {
+                            const tgl = new Date(item.tanggal).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year:'numeric' });
+                            let bClass = 'badge-warning';
+                            if(item.status === 'Selesai') bClass = 'badge-success';
+                            if(item.status === 'Dilaporkan') bClass = 'badge-info';
+
+                            const tr = document.createElement('tr');
+                            tr.innerHTML = `
+                                <td><b>LP-2026-${String(item.id).padStart(3, '0')}</b></td>
+                                <td>${tgl}</td>
+                                <td>${item.kategori}</td>
+                                <td>${item.lokasi}</td>
+                                <td><span class="badge ${bClass}">${item.status}</span></td>
+                            `;
+                            tbody.appendChild(tr);
+                        });
+                    }
+                }
+            } catch(e) {
+                console.error("Gagal menarik statistik pelapor:", e);
+            }
+        }
+
+        muatDasborPelapor();
+    }
 });

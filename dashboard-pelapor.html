@@ -1,383 +1,122 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Pelapor | Suara Kampus</title>
-
-    <link rel="stylesheet"
-          href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- ================= HEADER ================= -->
-
 <header class="top-header">
-
     <div class="header-left">
-
-        <img src="Logo.png"
-             alt="Logo Suara Kampus"
-             class="header-logo">
-
+        <img src="Logo.png" alt="Logo Suara Kampus" class="header-logo">
         <div class="header-title">
-
             <h2>Suara Kampus</h2>
-
             <p>Sistem Pelaporan Kerusakan Fasilitas Kampus</p>
-
         </div>
-
     </div>
-
     <div class="header-right">
-
-        <div class="notification">
-
-            🔔
-
-        </div>
-
+        <div class="notification">🔔</div>
         <div class="user-box">
-
-            <div class="user-photo">
-
-                M
-
-            </div>
-
+            <div class="user-photo" id="header-avatar">U</div>
             <div class="user-detail">
-
-                <h4>Marvella</h4>
-
-                <span>Mahasiswa</span>
-
+                <h4 id="header-user-name">Loading...</h4>
+                <span id="header-user-role">Mahasiswa</span>
             </div>
-
         </div>
-
     </div>
-
 </header>
 
-<!-- ================= DASHBOARD ================= -->
-
 <div class="dashboard">
-
-    <!-- SIDEBAR -->
-
+    <!-- SIDEBAR STANDAR PELAPOR -->
     <aside class="sidebar">
-
         <div class="logo-sidebar">
-
             <h2>Menu</h2>
-
         </div>
-
         <div class="sidebar-menu">
-
-            <a href="dashboard-pelapor.html"
-               class="active">
-
-                Dashboard
-
-            </a>
-
-            <a href="buat-laporan.html">
-
-                Buat Laporan
-
-            </a>
-
-            <a href="riwayat-laporan.html">
-
-                Riwayat Laporan
-
-            </a>
-
-            <a href="profil.html">
-
-                Profil
-
-            </a>
-
-            <a href="index.html">
-
-                Logout
-
-            </a>
-
+            <a href="dashboard-pelapor.html" class="active">Dashboard</a>
+            <a href="buat-laporan.html">Buat Laporan</a>
+            <a href="riwayat-laporan.html">Riwayat Laporan</a>
+            <a href="profil.html">Profil</a>
+            <a href="index.html" id="logout-btn">Logout</a>
         </div>
-
     </aside>
 
-
-    <!-- MAIN CONTENT -->
-
     <main class="main-content">
-
-
-        <!-- WELCOME -->
-
+        <!-- WELCOME DINAMIS -->
         <section class="welcome-card">
-
             <div class="welcome-text">
-
-                <h1>
-
-                    Selamat Datang, Marvella 👋
-
-                </h1>
-
-                <p>
-
-                    <strong>Gunakan menu di sebelah kiri untuk membuat laporan,
-                    memantau proses perbaikan, serta melihat riwayat
-                    laporan yang pernah dikirim </strong>
-
-                </p>
-
+                <h1>Selamat Datang, <span id="welcome-name">...</span> 👋</h1>
+                <p><strong>Gunakan menu di sebelah kiri untuk membuat laporan, memantau proses perbaikan, serta melihat riwayat laporan yang pernah dikirim.</strong></p>
             </div>
-
         </section>
 
-
-
-        <!-- STATISTIK -->
-
+        <!-- STATISTIK DINAMIS PELAPOR -->
         <section class="stats">
-
             <div class="card stat-card">
-
-                <h3>Total Laporan</h3>
-
-                <h2>12</h2>
-
+                <h3>Total Laporan Saya</h3>
+                <h2 id="pelapor-stat-total">-</h2>
             </div>
-
             <div class="card stat-card">
-
-                <h3>Diproses</h3>
-
-                <h2>4</h2>
-
+                <h3>Sedang Diproses</h3>
+                <h2 id="pelapor-stat-proses" style="color:#ffc107;">-</h2>
             </div>
-
             <div class="card stat-card">
-
-                <h3>Selesai</h3>
-
-                <h2>7</h2>
-
+                <h3>Sudah Selesai</h3>
+                <h2 id="pelapor-stat-selesai" style="color:#28a745;">-</h2>
             </div>
-
             <div class="card stat-card">
-
-                <h3>Urgensi Tinggi</h3>
-
-                <h2>1</h2>
-
+                <h3>Urgensi Darurat</h3>
+                <h2 id="pelapor-stat-darurat" style="color:#dc3545;">-</h2>
             </div>
-
         </section>
 
-
-
-        <!-- TABEL -->
-
+        <!-- TABEL 3 AKTIVITAS TERAKHIR -->
         <section class="card">
-
             <div class="table-header">
-
                 <div>
-
-                    <h2>
-
-                        Aktivitas Laporan Terbaru
-
-                    </h2>
-
-                    <p>
-
-                        Riwayat laporan terakhir yang telah Anda kirim.
-
-                    </p>
-
+                    <h2>Aktivitas Laporan Terbaru</h2>
+                    <p>3 laporan terakhir yang telah Anda kirim ke prasarana kampus.</p>
                 </div>
-
             </div>
-
             <div class="table-container">
-
                 <table>
-
                     <thead>
-
                         <tr>
-
                             <th>ID</th>
-
                             <th>Tanggal</th>
-
                             <th>Kategori</th>
-
                             <th>Lokasi</th>
-
                             <th>Status</th>
-
                         </tr>
-
                     </thead>
-
-                    <tbody>
-
-                        <tr>
-
-                            <td>LP-2026-001</td>
-
-                            <td>12 Mei 2026</td>
-
-                            <td>AC</td>
-
-                            <td>Gedung A Lt.2 Ruang 204</td>
-
-                            <td>
-
-                                <span class="badge badge-warning">
-
-                                    Diproses
-
-                                </span>
-
-                            </td>
-
-                        </tr>
-
-                        <tr>
-
-                            <td>LP-2026-002</td>
-
-                            <td>14 Mei 2026</td>
-
-                            <td>Listrik</td>
-
-                            <td>Lab Komputer 1</td>
-
-                            <td>
-
-                                <span class="badge badge-success">
-
-                                    Selesai
-
-                                </span>
-
-                            </td>
-
-                        </tr>
-
-                        <tr>
-
-                            <td>LP-2026-003</td>
-
-                            <td>16 Mei 2026</td>
-
-                            <td>Furniture</td>
-
-                            <td>Perpustakaan</td>
-
-                            <td>
-
-                                <span class="badge badge-danger">
-
-                                    Dilaporkan
-
-                                </span>
-
-                            </td>
-
-                        </tr>
-
+                    <tbody id="pelapor-tbody-terbaru">
+                        <tr><td colspan="5" style="text-align:center;">Menarik histori pelaporan...</td></tr>
                     </tbody>
-
                 </table>
-
             </div>
-
         </section>
-
-
 
         <!-- QUICK MENU -->
-
-        <section class="quick-action">
-
-            <a href="buat-laporan.html"
-               class="action-card">
-
-                <h3>
-
-                    + Buat Laporan Baru
-
-                </h3>
-
-                <p>
-
-                    Laporkan kerusakan fasilitas kampus dengan cepat.
-
-                </p>
-
+        <section class="quick-action" style="display:grid; grid-template-columns: 1fr 1fr; gap:15px; margin-top:20px;">
+            <a href="buat-laporan.html" class="action-card" style="text-decoration:none; color:inherit; border:1px solid #ddd; padding:15px; border-radius:8px; background:#fff;">
+                <h3 style="color:#007bff;">+ Buat Laporan Baru</h3>
+                <p style="color:#666; font-size:14px;">Laporkan kerusakan fasilitas kampus dengan cepat beserta bukti foto.</p>
             </a>
-
-            <a href="riwayat-laporan.html"
-               class="action-card">
-
-                <h3>
-
-                    Riwayat Laporan
-
-                </h3>
-
-                <p>
-
-                    Pantau status seluruh laporan Anda.
-
-                </p>
-
+            <a href="riwayat-laporan.html" class="action-card" style="text-decoration:none; color:inherit; border:1px solid #ddd; padding:15px; border-radius:8px; background:#fff;">
+                <h3 style="color:#28a745;">Riwayat & Pelacakan</h3>
+                <p style="color:#666; font-size:14px;">Pantau detail progres seluruh laporan yang pernah Anda kirim.</p>
             </a>
-
         </section>
 
-
-
-        <!-- FOOTER -->
-
         <footer class="footer">
-
-            <p>
-
-                © 2026 <strong>Suara Kampus</strong>
-
-            </p>
-
-            <span>
-
-                Sistem Pelaporan Kerusakan Fasilitas Kampus Universitas Lampung
-
-            </span>
-
+            <p>© 2026 <strong>Suara Kampus</strong></p>
+            <span>Sistem Pelaporan Kerusakan Fasilitas Kampus Universitas Lampung</span>
         </footer>
-
     </main>
-
 </div>
 
+<script src="script.js"></script>
 </body>
-
 </html>
