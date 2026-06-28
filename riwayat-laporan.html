@@ -2,415 +2,134 @@
 <html lang="id">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Riwayat Laporan | Suara Kampus</title>
-
-    <link rel="stylesheet"
-          href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
-
 <header class="top-header">
-
     <div class="header-left">
-
-        <img src="Logo.png"
-             class="header-logo">
-
+        <img src="Logo.png" class="header-logo">
         <div class="header-title">
-
             <h2>Suara Kampus</h2>
-
             <p>Sistem Pelaporan Kerusakan Fasilitas Kampus</p>
-
         </div>
-
     </div>
-
     <div class="header-right">
-
-        <div class="notification">
-
-            🔔
-
-        </div>
-
+        <div class="notification">🔔</div>
         <div class="user-box">
-
-            <div class="user-photo">
-
-                M
-
-            </div>
-
+            <div class="user-photo">U</div>
             <div class="user-detail">
-
-                <h4>Marvella</h4>
-
-                <span>Mahasiswa</span>
-
+                <h4 id="header-user-name">Loading...</h4>
+                <span id="header-user-role">Mahasiswa</span>
             </div>
-
         </div>
-
     </div>
-
 </header>
 
 <div class="dashboard">
-
-    <!-- SIDEBAR -->
-
     <aside class="sidebar">
-
         <div class="logo-sidebar">
-
             <h2>Menu</h2>
-
         </div>
-
         <div class="sidebar-menu">
-
-            <a href="dashboard-pelapor.html">
-
-                Dashboard
-
-            </a>
-
-            <a href="buat-laporan.html">
-
-                Buat Laporan
-
-            </a>
-
-            <a href="riwayat-laporan.html"
-               class="active">
-
-                Riwayat Laporan
-
-            </a>
-
-            <a href="profil.html">
-
-                Profil
-
-            </a>
-
-            <a href="index.html">
-
-                Logout
-
-            </a>
-
+            <a href="dashboard-pelapor.html">Dashboard</a>
+            <a href="buat-laporan.html">Buat Laporan</a>
+            <a href="riwayat-laporan.html" class="active">Riwayat Laporan</a>
+            <a href="profil.html">Profil</a>
+            <a href="index.html" id="logout-btn">Logout</a>
         </div>
-
     </aside>
 
-    <!-- MAIN -->
-
     <main class="main-content">
-
         <section class="welcome-card">
-
             <div class="welcome-text">
-
-                <h1>
-
-                    Riwayat Laporan
-
-                </h1>
-
-                <p>
-
-                    Lihat seluruh laporan yang pernah Anda kirim.
-                    Gunakan filter untuk mencari laporan berdasarkan
-                    status maupun kategori.
-
-                </p>
-
+                <h1>Riwayat Laporan</h1>
+                <p>Lihat seluruh laporan yang pernah Anda kirim. Gunakan filter untuk mencari laporan berdasarkan status maupun kategori.</p>
             </div>
-
         </section>
 
-        <!-- FILTER -->
-
         <section class="card">
-
             <div class="filter-grid">
-
-                <input
-                    type="text"
-                    placeholder="Cari ID atau lokasi">
-
-                <select>
-
-                    <option>Semua Status</option>
-
-                    <option>Dilaporkan</option>
-
-                    <option>Diproses</option>
-
-                    <option>Selesai</option>
-
+                <input type="text" id="filter-search" placeholder="Cari ID atau lokasi">
+                <select id="filter-status">
+                    <option value="">Semua Status</option>
+                    <option value="Dilaporkan">Dilaporkan</option>
+                    <option value="Diproses">Diproses</option>
+                    <option value="Selesai">Selesai</option>
                 </select>
-
-                <select>
-
-                    <option>Semua Kategori</option>
-
-                    <option>AC</option>
-
-                    <option>Listrik</option>
-
-                    <option>Furniture</option>
-
-                    <option>Internet</option>
-
+                <select id="filter-kategori">
+                    <option value="">Semua Kategori</option>
+                    <option value="AC">AC</option>
+                    <option value="Listrik">Listrik</option>
+                    <option value="Furniture">Furniture</option>
+                    <option value="Internet">Internet</option>
+                    <option value="Bangunan">Bangunan</option>
                 </select>
-
-                <button class="btn">
-
-                    Cari
-
-                </button>
-
+                <button class="btn" id="btn-filter">Cari</button>
             </div>
-
         </section>
 
-        <!-- TABLE -->
-
         <section class="card">
-
             <div class="table-header">
-
                 <div>
-
-                    <h2>
-
-                        Daftar Laporan
-
-                    </h2>
-
-                    <p>
-
-                        Riwayat seluruh laporan yang telah dikirim.
-
-                    </p>
-
+                    <h2>Daftar Laporan</h2>
+                    <p>Riwayat seluruh laporan yang telah dikirim.</p>
                 </div>
-
             </div>
-
             <div class="table-container">
-
                 <table>
-
                     <thead>
-
                         <tr>
-
                             <th>ID</th>
-
                             <th>Tanggal</th>
-
                             <th>Kategori</th>
-
                             <th>Lokasi</th>
-
                             <th>Urgensi</th>
-
                             <th>Status</th>
-
                             <th>Aksi</th>
-
                         </tr>
-
                     </thead>
-
-                    <tbody>
-
+                    <tbody id="laporan-table-body">
                         <tr>
-
-                            <td>LP-2026-001</td>
-
-                            <td>12 Mei 2026</td>
-
-                            <td>AC</td>
-
-                            <td>Gedung A Lt.2</td>
-
-                            <td>Tinggi</td>
-
-                            <td>
-
-                                <span class="badge badge-warning">
-
-                                    Diproses
-
-                                </span>
-
-                            </td>
-
-                            <td>
-
-                                <button class="btn-detail"
-                                        onclick="openModal()">
-
-                                    Lihat
-
-                                </button>
-
-                            </td>
-
+                            <td colspan="7" style="text-align:center;">Memuat data laporan...</td>
                         </tr>
-
-                        <tr>
-
-                            <td>LP-2026-002</td>
-
-                            <td>14 Mei 2026</td>
-
-                            <td>Listrik</td>
-
-                            <td>Lab Komputer</td>
-
-                            <td>Sedang</td>
-
-                            <td>
-
-                                <span class="badge badge-success">
-
-                                    Selesai
-
-                                </span>
-
-                            </td>
-
-                            <td>
-
-                                <button class="btn-detail"
-                                        onclick="openModal()">
-
-                                    Lihat
-
-                                </button>
-
-                            </td>
-
-                        </tr>
-
                     </tbody>
-
                 </table>
-
             </div>
-
         </section>
 
         <footer class="footer">
-
-            <p>
-
-                © 2026 <strong>Suara Kampus</strong>
-
-            </p>
-
-            <span>
-
-                Sistem Pelaporan Kerusakan Fasilitas Kampus Universitas Lampung
-
-            </span>
-
+            <p>© 2026 <strong>Suara Kampus</strong></p>
+            <span>Sistem Pelaporan Kerusakan Fasilitas Kampus Universitas Lampung</span>
         </footer>
-
     </main>
-
 </div>
 
-<!-- MODAL -->
-
-<div
-id="detailModal"
-class="modal">
-
-<div class="modal-content">
-
-<h2>Detail Laporan</h2>
-
-<hr>
-
-<br>
-
-<p><b>ID :</b> LP-2026-001</p>
-
-<p><b>Kategori :</b> AC</p>
-
-<p><b>Lokasi :</b> Gedung A Lt.2 Ruang 204</p>
-
-<p><b>Urgensi :</b> Tinggi</p>
-
-<p><b>Status :</b> Diproses</p>
-
-<br>
-
-<p><b>Kronologi</b></p>
-
-<p>
-
-AC tidak mengeluarkan udara dingin,
-terdapat suara bising dan tetesan air.
-
-</p>
-
-<br>
-
-<p><b>Catatan Admin</b></p>
-
-<p>
-
-Sedang menunggu jadwal teknisi.
-
-</p>
-
-<br>
-
-<button
-class="btn"
-onclick="closeModal()">
-
-Tutup
-
-</button>
-
+<div id="detailModal" class="modal">
+    <div class="modal-content">
+        <h2>Detail Laporan</h2>
+        <hr><br>
+        <p><b>ID :</b> <span id="modal-id">-</span></p>
+        <p><b>Kategori :</b> <span id="modal-kategori">-</span></p>
+        <p><b>Lokasi :</b> <span id="modal-lokasi">-</span></p>
+        <p><b>Urgensi :</b> <span id="modal-urgensi">-</span></p>
+        <p><b>Status :</b> <span id="modal-status">-</span></p>
+        <br>
+        <p><b>Kronologi</b></p>
+        <p id="modal-kronologi">-</p>
+        <br>
+        <div id="modal-foto-container" style="display:none; margin-bottom: 15px;">
+            <p><b>Foto Bukti:</b></p>
+            <img id="modal-foto" src="" style="max-width: 100%; border-radius: 5px;">
+        </div>
+        <button class="btn" id="btn-close-modal">Tutup</button>
+    </div>
 </div>
 
-</div>
-
-<script>
-
-function openModal(){
-
-document.getElementById("detailModal").style.display="flex";
-
-}
-
-function closeModal(){
-
-document.getElementById("detailModal").style.display="none";
-
-}
-
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>

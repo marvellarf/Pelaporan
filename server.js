@@ -98,7 +98,19 @@ app.post('/api/laporan', upload.single('foto_bukti'), (req, res) => {
 });
 
 
+// Endpoint API untuk menarik riwayat laporan milik user tertentu
+app.get('/api/laporan/user/:user_id', (req, res) => {
+    const userId = req.params.user_id;
 
+    const sql = "SELECT * FROM laporan WHERE user_id = ? ORDER BY id DESC";
+    db.all(sql, [userId], (err, rows) => {
+        if (err) {
+            res.status(500).json({ success: false, error: err.message });
+            return;
+        }
+        res.json({ success: true, data: rows });
+    });
+});
 
 app.listen(PORT, () => {
     console.log(`Server CampusFix berjalan di http://localhost:${PORT}`);

@@ -20,7 +20,9 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
                 // Suntik 1 akun Admin default biar dosen bisa langsung ngetes login admin
                 const insert = 'INSERT OR IGNORE INTO users (id, nama, email, password, role) VALUES (?,?,?,?,?)';
                 db.run(insert, [1, "Admin Prasarana", "admin@unila.ac.id", "admin123", "admin"]);
+                db.run(insert, [2, "Marvella", "marvella@mhs.unila.ac.id", "marvella123", "mahasiswa"]);
             }
+
         });
 
         // Bikin tabel laporan (untuk US-02 Form Kerusakan)
