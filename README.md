@@ -1,4 +1,4 @@
-# 🏛️ Suara Kampus — Sistem Pelaporan Kerusakan Fasilitas Kampus Berbasis Web
+# 🏛️ Suara Kampus - Sistem Pelaporan Kerusakan Fasilitas Kampus Berbasis Web
 
 
 **Suara Kampus** adalah aplikasi berbasis web (*Minimum Viable Product*) yang dikembangkan menggunakan kerangka kerja manajemen proyek **Scrum (Agile)**. Sistem ini dibangun untuk memfasilitasi civitas akademika (Mahasiswa, Dosen, dan Staf) dalam melaporkan kerusakan sarana prasarana kampus secara langsung, transparan, dan terintegrasi dengan panel penanganan staf prasarana.
